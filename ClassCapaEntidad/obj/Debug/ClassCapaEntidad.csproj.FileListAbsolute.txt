@@ -3,3 +3,9 @@ C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntid
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.dll
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.pdb
+D:\proyectoweb\Inventario\ClassCapaEntidad\bin\Debug\ClassCapaEntidad.dll
+D:\proyectoweb\Inventario\ClassCapaEntidad\bin\Debug\ClassCapaEntidad.pdb
+D:\proyectoweb\Inventario\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csproj.AssemblyReference.cache
+D:\proyectoweb\Inventario\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csproj.CoreCompileInputs.cache
+D:\proyectoweb\Inventario\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.dll
+D:\proyectoweb\Inventario\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.pdb
