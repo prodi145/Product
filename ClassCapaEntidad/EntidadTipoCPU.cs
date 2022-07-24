@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassCapaEntidad
 {
-    class EntidadTipoCPU
+    public class EntidadTipoCPU
     {
         public int id_Tcup { get; set; }
         public string Tipo { get; set; }

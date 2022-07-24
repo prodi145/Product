@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>441de6cf-7475-4911-9377-4daf839a1700</ProjectGuid>
+    <ProjectGuid>{441DE6CF-7475-4911-9377-4DAF839A1700}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ClassBLInventario</RootNamespace>
@@ -31,24 +31,46 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="ClassAccesoDatosSQL22">
+      <HintPath>..\ClassAccesoDatosSQL22\bin\Debug\ClassAccesoDatosSQL22.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassCapaEntidad">
+      <HintPath>..\ClassCapaEntidad\bin\Debug\ClassCapaEntidad.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CapaNegocioActualizacion.cs" />
+    <Compile Include="CapaNegocioCantDisc.cs" />
+    <Compile Include="CapaNegocioComFinImg.cs" />
+    <Compile Include="CapaNegocioComponentes.cs" />
+    <Compile Include="CapaNegocioComputFinal.cs" />
+    <Compile Include="CapaNegocioCPUGenerico.cs" />
+    <Compile Include="CapaNegocioDiscoDuro.cs" />
+    <Compile Include="CapaNegocioGabinete.cs" />
+    <Compile Include="CapaNegocioImagenCPU.cs" />
+    <Compile Include="CapaNegocioLaboratorio.cs" />
+    <Compile Include="CapaNegocioMarca.cs" />
+    <Compile Include="CapaNegocioMarCom.cs" />
+    <Compile Include="CapaNegocioModeloCPU.cs" />
+    <Compile Include="CapaNegocioMonitor.cs" />
+    <Compile Include="CapaNegocioMouse.cs" />
+    <Compile Include="CapaNegocioRAM.cs" />
+    <Compile Include="CapaNegocioTeclado.cs" />
+    <Compile Include="CapaNegocioTipoCPU.cs" />
+    <Compile Include="CapaNegocioTipoRAM.cs" />
+    <Compile Include="CapaNegocioUbicacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

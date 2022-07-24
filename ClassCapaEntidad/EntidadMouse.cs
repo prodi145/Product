@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassCapaEntidad
 {
-    class EntidadMouse
+    public class EntidadMouse
     {
         public int id_mouse { get; set; }
         public int f_marcamouse { get; set; }

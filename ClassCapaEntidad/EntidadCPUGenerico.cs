@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassCapaEntidad
 {
-    class EntidadCPUGenerico
+    public class EntidadCPUGenerico
     {
         public int id_CPU { get; set; }
         public int f_Tcpu { get; set; }
@@ -15,5 +15,6 @@ namespace ClassCapaEntidad
         public string Descripcion { get; set; }
         public int f_tipoRam { get; set; }
         public int id_Gabinete { get; set; }
+        public int fkimg { get; set; }
     }
 }

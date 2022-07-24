@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassCapaEntidad
 {
-    class EntidadTeclado
+    public class EntidadTeclado
     {
         public int id_teclado { get; set; }
         public int f_marcat { get; set; }
