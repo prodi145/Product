@@ -13,5 +13,6 @@ namespace ClassCapaEntidad
         public string Familia { get; set; }
         public string Velocidad { get; set; }
         public string Extra { get; set; }
+        public int id_modCPU { get; set; }
     }
 }

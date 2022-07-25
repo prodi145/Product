@@ -30,7 +30,7 @@
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" Text="Guardar Gabinete" />
+            <asp:Button ID="Button1" runat="server" Text="Guardar Gabinete" OnClick="Button1_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button3" runat="server" Text="Editar" />
 &nbsp;&nbsp;

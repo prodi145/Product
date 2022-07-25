@@ -22,18 +22,20 @@ namespace ClassBLInventario
 
         public Boolean InsertarTipoCPU(EntidadTipoCPU nuevo, ref string m)
         {
-            string sentecia = "insert into Tipo_CPU(Tipo, Familia, Velocidad, Extra) values(@tip,@fam,@veloc,@extr);";
+            string sentecia = "insert into Tipo_CPU(Tipo, Familia, Velocidad, Extra, idmodcpu) values(@tip,@fam,@veloc,@extr,@model);";
             SqlParameter[] coleccion = new SqlParameter[]
             {
                 new SqlParameter("tip",SqlDbType.VarChar,40),
                 new SqlParameter("fam",SqlDbType.VarChar,30),
                 new SqlParameter("veloc",SqlDbType.VarChar,50),
-                new SqlParameter("extr",SqlDbType.VarChar,30)
+                new SqlParameter("extr",SqlDbType.VarChar,30),
+                new SqlParameter("model",SqlDbType.Int)
             };
             coleccion[0].Value = nuevo.Tipo;
             coleccion[1].Value = nuevo.Familia;
             coleccion[2].Value = nuevo.Velocidad;
             coleccion[3].Value = nuevo.Extra;
+            coleccion[4].Value = nuevo.id_modCPU;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentecia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;

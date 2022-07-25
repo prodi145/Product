@@ -25,7 +25,7 @@ namespace ClassBLInventario
             string sentecia = "insert into laboratorio(nombre_laboratorio) values(@nomLab);";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("nomLap",SqlDbType.VarChar,64),
+                new SqlParameter("nomLab",SqlDbType.VarChar,64),
             };
             coleccion[0].Value = nuevo.nombre_laboratorio;
             Boolean salida = false;

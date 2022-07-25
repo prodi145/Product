@@ -77,6 +77,34 @@ namespace ClassBLInventario
             return lista;
         }
 
+        public List<EntidadModeloCPU> DevuelveIdModeloCPU(ref string mensaje)
+        {
+            List<EntidadModeloCPU> lista = new List<EntidadModeloCPU>();
+            SqlDataReader atrapa = null;
+            SqlConnection cn = null;
+            cn = operacion.AbrirConexion(ref mensaje);
+            string consulta = "select * from ModeloCPU";
+            atrapa = operacion.ConsultaDR(consulta, cn, ref mensaje);
+            if (atrapa != null)
+            {
+                while (atrapa.Read())
+                {
+                    lista.Add(new EntidadModeloCPU()
+                    {
+                        id_modcpu = (int)atrapa[0],
+                        modeloCPU = atrapa[1].ToString(),
+                        f_marca = Convert.ToInt16(atrapa[2])
+
+                    }
+                    ); ;
+
+                }
+            }
+            cn.Close();
+            cn.Dispose();
+            return lista;
+        }
+
         public DataTable ObtenTodModeloCPU(ref string mensaje)
         {
             string consulta = "Select * from ModeloCPU";

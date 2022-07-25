@@ -43,6 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClassAccesoDatosSQL22">
+      <HintPath>..\ClassAccesoDatosSQL22\bin\Debug\ClassAccesoDatosSQL22.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassBLInventario">
+      <HintPath>..\ClassBLInventario\bin\Debug\ClassBLInventario.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassCapaEntidad">
+      <HintPath>..\ClassCapaEntidad\bin\Debug\ClassCapaEntidad.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,17 +76,56 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="actualizacion.aspx" />
+    <Content Include="cantdiscos.aspx" />
+    <Content Include="computadorafinal.aspx" />
+    <Content Include="cpugenerico.aspx" />
     <Content Include="discoduro.aspx" />
     <Content Include="gabinete.aspx" />
     <Content Include="index.aspx" />
+    <Content Include="laboratorio.aspx" />
     <Content Include="marca.aspx" />
     <Content Include="modelocpu.aspx" />
     <Content Include="monitor.aspx" />
     <Content Include="mouse.aspx" />
+    <Content Include="ram.aspx" />
     <Content Include="teclado.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="tipocpu.aspx" />
+    <Content Include="tiporam.aspx" />
+    <Content Include="ubicacion.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="actualizacion.aspx.cs">
+      <DependentUpon>actualizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="actualizacion.aspx.designer.cs">
+      <DependentUpon>actualizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cantdiscos.aspx.cs">
+      <DependentUpon>cantdiscos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cantdiscos.aspx.designer.cs">
+      <DependentUpon>cantdiscos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="computadorafinal.aspx.cs">
+      <DependentUpon>computadorafinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="computadorafinal.aspx.designer.cs">
+      <DependentUpon>computadorafinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cpugenerico.aspx.cs">
+      <DependentUpon>cpugenerico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpugenerico.aspx.designer.cs">
+      <DependentUpon>cpugenerico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="discoduro.aspx.cs">
       <DependentUpon>discoduro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,6 +146,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="laboratorio.aspx.cs">
+      <DependentUpon>laboratorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="laboratorio.aspx.designer.cs">
+      <DependentUpon>laboratorio.aspx</DependentUpon>
     </Compile>
     <Compile Include="marca.aspx.cs">
       <DependentUpon>marca.aspx</DependentUpon>
@@ -128,12 +183,40 @@
       <DependentUpon>mouse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ram.aspx.cs">
+      <DependentUpon>ram.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ram.aspx.designer.cs">
+      <DependentUpon>ram.aspx</DependentUpon>
+    </Compile>
     <Compile Include="teclado.aspx.cs">
       <DependentUpon>teclado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="teclado.aspx.designer.cs">
       <DependentUpon>teclado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tipocpu.aspx.cs">
+      <DependentUpon>tipocpu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tipocpu.aspx.designer.cs">
+      <DependentUpon>tipocpu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tiporam.aspx.cs">
+      <DependentUpon>tiporam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tiporam.aspx.designer.cs">
+      <DependentUpon>tiporam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ubicacion.aspx.cs">
+      <DependentUpon>ubicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ubicacion.aspx.designer.cs">
+      <DependentUpon>ubicacion.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

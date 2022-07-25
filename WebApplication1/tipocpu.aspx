@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tiporam.aspx.cs" Inherits="WebApplication1.tiporam" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tipocpu.aspx.cs" Inherits="WebApplication1.tipocpu" %>
 
 <!DOCTYPE html>
 
@@ -25,22 +25,37 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            &nbsp;
-            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Guardar Nuevo Tipo de RAM"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Guardar Nuevo Tipo de CPU"></asp:Label>
             <br />
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label2" runat="server" Text="Tipo: "></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox1" runat="server" style="margin-bottom: 0px" Width="316px"></asp:TextBox>
+&nbsp;<asp:TextBox ID="TextBox1" runat="server" style="margin-bottom: 0px" Width="328px"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             <br />
             <br />
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" Text="Familia:"></asp:Label>
+            &nbsp;
+            <asp:TextBox ID="TextBox2" runat="server" Width="313px"></asp:TextBox>
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label4" runat="server" Text="Velocidaad:"></asp:Label>
+&nbsp;<asp:TextBox ID="TextBox4" runat="server" Width="289px"></asp:TextBox>
+            <br />
+            <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label3" runat="server" Text="Extra:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" Width="313px" Height="21px"></asp:TextBox>
+            <asp:Label ID="Label5" runat="server" Text="Extra:"></asp:Label>
+&nbsp;<asp:TextBox ID="TextBox5" runat="server" Width="327px"></asp:TextBox>
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label6" runat="server" Text="Modelo CPU:"></asp:Label>
+&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="23px" Width="285px">
+            </asp:DropDownList>
+            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Cargar Modelos " />
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -74,7 +89,7 @@
         </div>
     </form>
 </body>
-        	<!-- js -->
+            	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>
 	<script src="vendors/scripts/process.js"></script>
