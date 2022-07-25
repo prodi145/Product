@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
 
@@ -43,9 +43,7 @@
 			<div class="menu-icon dw dw-menu"></div>
 			<div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
 			<div class="header-search">
-				<form>
-					
-				</form>
+				
 			</div>
 		</div>
 		<div class="header-right">
@@ -237,9 +235,22 @@
 	<div class="mobile-menu-overlay"></div>
 
 	<div class="main-container">
+
 		<div class="pd-ltr-20">
 			
-			
+			<div class="card-box pd-20 height-100-p mb-30">
+				<div class="row align-items-center">
+					<div class="col-md-4">
+						<img src="vendors/images/banner-img.png" alt="">
+					</div>
+					<div class="col-md-8">
+						<h4 class="font-20 weight-500 mb-10 text-capitalize">
+							Bienvenido<div class="weight-600 font-30 text-blue">Administrador!</div>
+						</h4>
+						<p class="font-18 max-width-600">Recuerda que puedes guardar, eliminar, actualizar y editar la informacion</p>
+					</div>
+				</div>
+			</div>
 			
 
 		</div>
