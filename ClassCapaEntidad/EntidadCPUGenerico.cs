@@ -15,6 +15,6 @@ namespace ClassCapaEntidad
         public string Descripcion { get; set; }
         public int f_tipoRam { get; set; }
         public int id_Gabinete { get; set; }
-        public int fkimg { get; set; }
+        public string img { get; set; }
     }
 }

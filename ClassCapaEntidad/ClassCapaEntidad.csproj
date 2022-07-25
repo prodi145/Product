@@ -52,7 +52,6 @@
     <Compile Include="EntidadCPUGenerico.cs" />
     <Compile Include="EntidadDiscoDuro.cs" />
     <Compile Include="EntidadGabinete.cs" />
-    <Compile Include="EntidadImagenCPU.cs" />
     <Compile Include="EntidadLaboratorio.cs" />
     <Compile Include="EntidadMarca.cs" />
     <Compile Include="EntidadMarCom.cs" />
