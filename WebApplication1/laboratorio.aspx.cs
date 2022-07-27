@@ -45,6 +45,7 @@ namespace WebApplication1
             string cad = "";
             objBAct.InsertarLaboratorio(nuevo, ref cad);
             TextBox2.Text = cad;
+            TextBox1.Text = "";
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -58,18 +59,34 @@ namespace WebApplication1
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            //EntidadLaboratorio nuevo = new EntidadLaboratorio()
-            //{
-            //    nombre_laboratorio = GridView1.SelectedIndexChanged 
-            //};
-            //string cad = "";
-            //objBAct.EliminarLaboratorio(nuevo, ref cad);
-            //TextBox1.Text = cad;
+            EntidadLaboratorio nuevo = new EntidadLaboratorio()
+            {
+                nombre_laboratorio = DropDownList2.SelectedValue
+            };
+            string cad = "";
+            objBAct.EliminarLaboratorio(nuevo, ref cad);
+            TextBox2.Text = cad;
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            List<EntidadLaboratorio> listaAtrapada = null;
+            string m = "";
+            listaAtrapada = objBAct.DevuelveInfoLaboratorio(ref m);
+            DropDownList2.Items.Clear();
+            for (int a = 0; a < listaAtrapada.Count; a++)
+            {
+                DropDownList2.Items.Add(
+                    new ListItem(
+                        listaAtrapada[a].nombre_laboratorio + " "
+                        ));
+            }
+            TextBox2.Text = m;
         }
     }
 }

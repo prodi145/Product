@@ -82,6 +82,33 @@ namespace ClassBLInventario
             return lista;
         }
 
+        public List<EntidadMarca> DevuelveIDMarca(ref string mensaje)
+        {
+            List<EntidadMarca> lista = new List<EntidadMarca>();
+            SqlDataReader atrapa = null;
+            SqlConnection cn = null;
+            cn = operacion.AbrirConexion(ref mensaje);
+            string consulta = "select * from Marca";
+            atrapa = operacion.ConsultaDR(consulta, cn, ref mensaje);
+            if (atrapa != null)
+            {
+                while (atrapa.Read())
+                {
+                    lista.Add(new EntidadMarca()
+                    {
+                        Id_Marca = Convert.ToInt16(atrapa[0]),
+                        Marca = atrapa[1].ToString(),
+                        Id_Componente = atrapa[2].ToString(),
+                        Extra = atrapa[3].ToString()
+                    }
+                    );
+                }
+            }
+            cn.Close();
+            cn.Dispose();
+            return lista;
+        }
+
         public DataTable ObtenTodasMarcas(ref string mensaje)
         {
             string consulta = "Select * from Marca";

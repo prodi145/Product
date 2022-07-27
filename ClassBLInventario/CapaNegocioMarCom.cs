@@ -67,6 +67,7 @@ namespace ClassBLInventario
                 {
                     lista.Add(new EntidadMarCom()
                     {
+                        id_marcom = Convert.ToInt16(atrapa[0]),
                         Idcomponente = Convert.ToInt16(atrapa[1]),
                         Idmarca = Convert.ToInt16(atrapa[2])
                     }

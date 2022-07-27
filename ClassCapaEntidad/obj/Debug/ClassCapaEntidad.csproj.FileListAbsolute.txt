@@ -1,18 +1,9 @@
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\bin\Debug\ClassCapaEntidad.dll
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\bin\Debug\ClassCapaEntidad.pdb
+C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\bin\Debug\ClassAccesoDatosSQL22.dll
+C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\bin\Debug\ClassAccesoDatosSQL22.pdb
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.dll
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.pdb
-<<<<<<< HEAD
-C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\bin\Debug\ClassAccesoDatosSQL22.pdb
-C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csprojAssemblyReference.cache
-=======
-D:\proyectoweb\Inventario\ClassCapaEntidad\bin\Debug\ClassCapaEntidad.dll
-D:\proyectoweb\Inventario\ClassCapaEntidad\bin\Debug\ClassCapaEntidad.pdb
-D:\proyectoweb\Inventario\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csproj.AssemblyReference.cache
-D:\proyectoweb\Inventario\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.csproj.CoreCompileInputs.cache
-D:\proyectoweb\Inventario\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.dll
-D:\proyectoweb\Inventario\ClassCapaEntidad\obj\Debug\ClassCapaEntidad.pdb
->>>>>>> f4ebb45bf5d0191ca4a4870617a679b9e5dc87e6
-C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\ClassCapaEntidad\bin\Debug\ClassAccesoDatosSQL22.dll

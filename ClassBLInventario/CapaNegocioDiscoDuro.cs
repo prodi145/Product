@@ -95,6 +95,36 @@ namespace ClassBLInventario
             return lista;
         }
 
+        public List<EntidadDiscoDuro> DevuelveIdDiscoDuro(ref string mensaje)
+        {
+            List<EntidadDiscoDuro> lista = new List<EntidadDiscoDuro>();
+            SqlDataReader atrapa = null;
+            SqlConnection cn = null;
+            cn = operacion.AbrirConexion(ref mensaje);
+            string consulta = "select * from DiscoDuro";
+            atrapa = operacion.ConsultaDR(consulta, cn, ref mensaje);
+            if (atrapa != null)
+            {
+                while (atrapa.Read())
+                {
+                    lista.Add(new EntidadDiscoDuro()
+                    {
+                        id_Disco = Convert.ToInt16(atrapa[0]),
+                        TipoDisco = atrapa[1].ToString(),
+                        conector = atrapa[2].ToString(),
+                        Capacidad = atrapa[3].ToString(),
+                        F_MarcaDisco = Convert.ToInt16(atrapa[4]),
+                        Extra = atrapa[5].ToString()
+                    }
+                    );
+
+                }
+            }
+            cn.Close();
+            cn.Dispose();
+            return lista;
+        }
+
         public Boolean EliminarDiscoDuro(EntidadDiscoDuro nuevo, ref string m)
         {
             string sentencia = "DELETE FROM DiscoDuro WHERE TipoDisco = @tip";

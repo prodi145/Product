@@ -74,6 +74,32 @@ namespace ClassBLInventario
             cn.Dispose();
             return lista;
         }
+        
+        public List<EntidadCantDisc> DevuelveInfoIdCantDisco(ref string mensaje)
+        {
+            List<EntidadCantDisc> lista = new List<EntidadCantDisc>();
+            SqlDataReader atrapa = null;
+            SqlConnection cn = null;
+            cn = operacion.AbrirConexion(ref mensaje);
+            string consulta = "select * from cantDisc";
+            atrapa = operacion.ConsultaDR(consulta, cn, ref mensaje);
+            if (atrapa != null)
+            {
+                while (atrapa.Read())
+                {
+                    lista.Add(new EntidadCantDisc()
+                    {
+                        id_Disco = Convert.ToInt16(atrapa[0])
+                    }
+                    );
+
+                }
+            }
+            cn.Close();
+            cn.Dispose();
+            return lista;
+        }
+
 
         public Boolean ModificarCantDisco(EntidadCantDisc nuevo, ref string m)
         {

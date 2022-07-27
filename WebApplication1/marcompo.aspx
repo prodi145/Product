@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gabinete.aspx.cs" Inherits="WebApplication1.gabinete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="marcompo.aspx.cs" Inherits="WebApplication1.marcompo" %>
 
 <!DOCTYPE html>
 
@@ -28,8 +28,8 @@
     </style>
 </head>
 <body>
-        <form id="form1" runat="server">
-         
+    <form id="form1" runat="server">
+        
 	</div>
 
 	<div class="header">
@@ -243,62 +243,57 @@
 			
 			<div class="">
 				<div class="">
-					  <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Guardar Nuevo Gabinete"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox3" runat="server" Width="283px"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="Label2" runat="server" Text="Modelo:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server" Width="224px"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="Label3" runat="server" Text="Tipo Forma:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" Width="216px"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="Label4" runat="server" Text="Selecciona Marca:"></asp:Label>
-&nbsp;&nbsp;
-            <asp:DropDownList ID="DropDownList1" runat="server" Height="23px" Width="212px">
-            </asp:DropDownList>
-            &nbsp;&nbsp;
-            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Cargar Marcas" />
-            <br />
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" Text="Guardar Gabinete" OnClick="Button1_Click" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button3" runat="server" Text="Editar" />
-&nbsp;<br />
-                      <br />
-            <br />
-            <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar Gabinete"></asp:Label>
-            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Gargar Gabinetes" Width="133px" />
-            <br />
-            &nbsp;<asp:DropDownList ID="DropDownList2" runat="server" Height="23px" Width="213px">
-            </asp:DropDownList>
-&nbsp;<asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click" />
-            <br />
-                      <br />
-            <br />
-            <asp:Button ID="Button2" runat="server" Text="Ver Gabinetes" OnClick="Button2_Click" />
-            <br />
-            <br />
-            <br />
-            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" cellspacing ="5">
-                <AlternatingRowStyle BackColor="White" />
-                <EditRowStyle BackColor="#2461BF" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
-                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                <SortedDescendingHeaderStyle BackColor="#4870BE" />
-            </asp:GridView>
+					 <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Guardar Nuevo Componente para Marca"></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:TextBox ID="TextBox5" runat="server" Width="220px"></asp:TextBox>
+                            <br />
+                            <br />
+                            <asp:Label ID="Label5" runat="server" Text="Seleccionar componente:"></asp:Label>
+                &nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="23px" Width="206px">
+                            </asp:DropDownList>
+                            &nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Cargar Componentes" Width="158px" />
+                            <br />
+                            <br />
+                            <asp:Label ID="Label6" runat="server" Text="Seleccionar Marca: "></asp:Label>
+                &nbsp;<asp:DropDownList ID="DropDownList2" runat="server" Height="23px" Width="242px">
+                        </asp:DropDownList>
+                &nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Cargar Marcas" />
+                            <br />
+                            <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button1" runat="server" Text="Guardar" OnClick="Button1_Click" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button3" runat="server" Text="Editar" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br />
+                            <br />
+                        <br />
+                            <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar "></asp:Label>
+                            <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Recuperar" />
+                        <br />
+                        <asp:DropDownList ID="DropDownList3" runat="server" Width="245px">
+                        </asp:DropDownList>
+                            <asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click" />
+                            <br />
+                            <br />
+                            <asp:Button ID="Button2" runat="server" Text="Mostrar" OnClick="Button2_Click" />
+                            <br />
+                            <br />
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" cellspacing ="5">
+                                <AlternatingRowStyle BackColor="White" />
+                                <EditRowStyle BackColor="#2461BF" />
+                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#EFF3FB" />
+                                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                            </asp:GridView>
 				</div>
 			</div>
 			
@@ -306,9 +301,8 @@
 		</div>
 	</div>
     </form>
-
 </body>
-                	<!-- js -->
+                    	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>
 	<script src="vendors/scripts/process.js"></script>

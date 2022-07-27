@@ -68,6 +68,10 @@ namespace WebApplication1
             string cad = "";
             objTipCPU.InsertarTipoCPU(nuevo, ref cad);
             TextBox3.Text = cad;
+            TextBox1.Text = "";
+            TextBox2.Text = "";
+            TextBox4.Text = "";
+            TextBox5.Text = "";
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -77,6 +81,38 @@ namespace WebApplication1
             GridView1.DataSource = Session["Tabla1"];
             TextBox3.Text = m;
             GridView1.DataBind();
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            List<EntidadTipoCPU> listaAtrapada = null;
+            string m = "";
+            listaAtrapada = objTipCPU.DevuelveInfoTipoCPU(ref m);
+            DropDownList2.Items.Clear();
+            for (int a = 0; a < listaAtrapada.Count; a++)
+            {
+                DropDownList2.Items.Add(
+                    new ListItem(
+                        listaAtrapada[a].Tipo + " "
+                        ));
+            }
+            TextBox3.Text = m;
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            EntidadTipoCPU nuevo = new EntidadTipoCPU()
+            {
+                Tipo = DropDownList2.SelectedValue,
+            };
+            string cad = "";
+            objTipCPU.EliminarTipoCPU(nuevo, ref cad);
+            TextBox3.Text = cad;
         }
     }
 }

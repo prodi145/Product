@@ -92,8 +92,8 @@ namespace ClassBLInventario
                     lista.Add(new EntidadUbicacion()
                     {
 
-                        num_inv = atrapa[1].ToString(),
-                        nombre_laboratorio = atrapa[2].ToString(),
+                        num_inv = atrapa[0].ToString(),
+                        nombre_laboratorio = atrapa[1].ToString(),
 
                     }
                     ); 

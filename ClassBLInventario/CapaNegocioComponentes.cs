@@ -72,6 +72,32 @@ namespace ClassBLInventario
             return lista;
         }
 
+        public List<EntidadComponentes> DevuelveIdComponentes(ref string mensaje)
+        {
+            List<EntidadComponentes> lista = new List<EntidadComponentes>();
+            SqlDataReader atrapa = null;
+            SqlConnection cn = null;
+            cn = operacion.AbrirConexion(ref mensaje);
+            string consulta = "select * from Componentes";
+            atrapa = operacion.ConsultaDR(consulta, cn, ref mensaje);
+            if (atrapa != null)
+            {
+                while (atrapa.Read())
+                {
+                    lista.Add(new EntidadComponentes()
+                    {
+                        id_Componente = Convert.ToInt16(atrapa[0]),
+                        categoria = atrapa[1].ToString(),
+                    }
+                    );
+
+                }
+            }
+            cn.Close();
+            cn.Dispose();
+            return lista;
+        }
+
         public Boolean ModificarComponentes(EntidadComponentes nuevo, ref string m)
         {
             string sentencia = "UPDATE Componentes set categoria = @cate WHERE id_Componente = @id";

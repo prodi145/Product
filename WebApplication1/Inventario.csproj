@@ -78,6 +78,7 @@
   <ItemGroup>
     <Content Include="actualizacion.aspx" />
     <Content Include="cantdiscos.aspx" />
+    <Content Include="componentes.aspx" />
     <Content Include="computadorafinal.aspx" />
     <Content Include="cpugenerico.aspx" />
     <Content Include="discoduro.aspx" />
@@ -85,6 +86,7 @@
     <Content Include="index.aspx" />
     <Content Include="laboratorio.aspx" />
     <Content Include="marca.aspx" />
+    <Content Include="marcompo.aspx" />
     <Content Include="modelocpu.aspx" />
     <Content Include="monitor.aspx" />
     <Content Include="mouse.aspx" />
@@ -111,6 +113,13 @@
     </Compile>
     <Compile Include="cantdiscos.aspx.designer.cs">
       <DependentUpon>cantdiscos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="componentes.aspx.cs">
+      <DependentUpon>componentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="componentes.aspx.designer.cs">
+      <DependentUpon>componentes.aspx</DependentUpon>
     </Compile>
     <Compile Include="computadorafinal.aspx.cs">
       <DependentUpon>computadorafinal.aspx</DependentUpon>
@@ -160,6 +169,13 @@
     </Compile>
     <Compile Include="marca.aspx.designer.cs">
       <DependentUpon>marca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="marcompo.aspx.cs">
+      <DependentUpon>marcompo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="marcompo.aspx.designer.cs">
+      <DependentUpon>marcompo.aspx</DependentUpon>
     </Compile>
     <Compile Include="modelocpu.aspx.cs">
       <DependentUpon>modelocpu.aspx</DependentUpon>

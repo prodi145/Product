@@ -104,5 +104,33 @@ namespace ClassBLInventario
             cn.Dispose();
             return lista;
         }
+
+        public List<EntidadTipoRAM> DevuelveIdTipRAM(ref string mensaje)
+        {
+            List<EntidadTipoRAM> lista = new List<EntidadTipoRAM>();
+            SqlDataReader atrapa = null;
+            SqlConnection cn = null;
+            cn = operacion.AbrirConexion(ref mensaje);
+            string consulta = "select * from TipoRAM";
+            atrapa = operacion.ConsultaDR(consulta, cn, ref mensaje);
+            if (atrapa != null)
+            {
+                while (atrapa.Read())
+                {
+                    lista.Add(new EntidadTipoRAM
+                    {
+                        id_tipoRam = Convert.ToInt16(atrapa[0]),
+                        Tipo = atrapa[1].ToString(),
+                        Extra = atrapa[2].ToString()
+
+                    }
+                    ); 
+
+                }
+            }
+            cn.Close();
+            cn.Dispose();
+            return lista;
+        }
     }
 }

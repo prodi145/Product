@@ -215,6 +215,7 @@
 				<i class="ion-close-round"></i>
 			</div>
 		</div>
+        
 		<div class="menu-block customscroll">
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
@@ -223,8 +224,16 @@
 							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="index.html">Dashboard style 1</a></li>
-							<li><a href="index2.html">Dashboard style 2</a></li>
+							<li><a href="componentes.aspx">Componentes</a></li>
+							<li><a href="ubicacion.aspx">Ubicacion</a></li>
+                            <li><a href="laboratorio.aspx">Laboratorio</a></li>
+							<li><a href="tiporam.aspx">Tipo RAM</a></li>
+                            <li><a href="ram.aspx">RAM</a></li>
+							<li><a href="discoduro.aspx">Disco Duro</a></li>
+                            <li><a href="tipocpu.aspx">Tipo CPU</a></li>
+							<li><a href="cantdiscos.aspx">Cantidad de Discos</a></li>
+                            <li><a href="gabinete.aspx">Gabinete</a></li>
+							<li><a href="marcompo.aspx">Marca con Componente</a></li>
 						</ul>
 					</li>
 					
