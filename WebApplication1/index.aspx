@@ -224,6 +224,7 @@
 							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
 						</a>
 						<ul class="submenu">
+                            <li><a href="consultas.aspx">Ver Consultas...</a></li>
 							<li><a href="componentes.aspx">Componentes</a></li>
 							<li><a href="ubicacion.aspx">Ubicacion</a></li>
                             <li><a href="laboratorio.aspx">Laboratorio</a></li>
@@ -234,11 +235,14 @@
 							<li><a href="cantdiscos.aspx">Cantidad de Discos</a></li>
                             <li><a href="gabinete.aspx">Gabinete</a></li>
 							<li><a href="marcompo.aspx">Marca con Componente</a></li>
+                            
 						</ul>
+                        
 					</li>
 					
 				</ul>
 			</div>
+
 		</div>
 	</div>
 	<div class="mobile-menu-overlay"></div>

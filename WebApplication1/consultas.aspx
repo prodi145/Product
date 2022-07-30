@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ram.aspx.cs" Inherits="WebApplication1.ram" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="consultas.aspx.cs" Inherits="WebApplication1.consultas" %>
 
 <!DOCTYPE html>
 
@@ -22,13 +22,19 @@
 	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
     <style>
+        #GridView1{
+            width:600px;
+        }
         #GridView2{
+            width:600px;
+        }
+        #GridView3{
             width:600px;
         }
     </style>
 </head>
 <body>
-        <form id="form1" runat="server">
+    <form id="form1" runat="server">
          
 	</div>
 
@@ -244,110 +250,77 @@
 			
 			<div class="">
 				<div class="">
-					<asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Guardar Nueva RAM"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox3" runat="server" Width="303px" ReadOnly="true"></asp:TextBox>
+					    				    <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Consulta Informacion de tu Equipo"></asp:Label>
+            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
             <br />
             <br />
+            <asp:Label ID="Label2" runat="server" Text="Ingresa tu Numero de Inventario: "></asp:Label>
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
             <br />
-&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label2" runat="server" Text="Capacidad: "></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox1" runat="server" style="margin-bottom: 0px" Width="278px"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <br />
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" Text="Velocidad:"></asp:Label>
-            &nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" Width="279px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" />
             <br />
             <br />
-&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label6" runat="server" Text="Tipo de RAM:"></asp:Label>
-&nbsp;
-&nbsp;<asp:DropDownList ID="DropDownList1"  runat="server" Height="23px" Width="285px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-            </asp:DropDownList>
-            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Cargar Tip RAM" />
-            <br />
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" Text="Guardar" OnClick="Button1_Click" Height="27px" />
-        &nbsp;&nbsp;&nbsp;<br />
-                    <br />
-                    <br />
-           <asp:Button ID="Button2" runat="server" Text="Ver Datos" OnClick="Button2_Click" />
-                    <br />
-                    <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
-               <AlternatingRowStyle BackColor="White" />
-             
-               <EditRowStyle BackColor="#2461BF" />
-               <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-               <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-               <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-               <RowStyle BackColor="#EFF3FB" />
-               <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-               <SortedAscendingCellStyle BackColor="#F5F7FB" />
-               <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-               <SortedDescendingCellStyle BackColor="#E9EBEF" />
-               <SortedDescendingHeaderStyle BackColor="#4870BE" />
-               <Columns>
-               <asp:TemplateField>
-               <ItemTemplate>
-               <asp:CheckBox Text="Eliminar" ID="chk" runat="server" AutoPostBack="True" OnCheckedChanged="chk_CheckedChanged" />
-               </ItemTemplate>
-               </asp:TemplateField>
-               </Columns>
-
-                <Columns>
-               <asp:TemplateField>
-               <ItemTemplate>
-               <asp:CheckBox Text="Modificar" ID="chk2" runat="server" AutoPostBack="True" OnCheckedChanged="chkk_CheckedChanged" />
-               </ItemTemplate>
-               </asp:TemplateField>
-               </Columns>
-           </asp:GridView>
-                    <br />
-                    <br />
-					<asp:Label ID="Label11" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Modificar"></asp:Label>
-                    (selecciona renglon(registro) que quieres modificar)<br />
-&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="Label12" runat="server" Text="Id: "></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="TextBox7" runat="server" Width="329px" ReadOnly="true"></asp:TextBox>
-                    <br />
-                    <br />
-&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label8" runat="server" Text="Capacidad: "></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox4" runat="server" style="margin-bottom: 0px" Width="328px"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <br />
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label9" runat="server" Text="Velocidad:"></asp:Label>
-            &nbsp;
-            &nbsp;
-            <asp:TextBox ID="TextBox5" runat="server" Width="326px"></asp:TextBox>
-            <br />
-            <br />
-&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label10" runat="server" Text="Tipo de RAM:"></asp:Label>
-&nbsp;<asp:DropDownList ID="DropDownList3"  runat="server" Height="23px" Width="323px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-            </asp:DropDownList>
-                    <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="Cargar Nuevo TipRAM" Width="165px" />
-                    <br />
-                    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <asp:Button ID="Button3" runat="server" Text="Editar" OnClick="Button3_Click" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-                    <br />
-                    <br />
-            <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar RAM"></asp:Label>
-                    (selecciona renglon(registro) que quieres eliminar)&nbsp;&nbsp;&nbsp;
-           <br />
-                    <asp:TextBox ID="TextBox6" runat="server" ReadOnly="true"></asp:TextBox>
-&nbsp;&nbsp; &nbsp;&nbsp;
-           <asp:Button ID="Button4" runat="server" Text="Elimar" OnClick="Button4_Click" />
-           <br />
-                    <br />
+            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                <AlternatingRowStyle BackColor="White" />
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+					    <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Consulta Laboratorio de tu Equipo"></asp:Label>
+                        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="Button2" runat="server" Text="Mostrar" OnClick="Button2_Click" />
+                        <br />
+                        <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                        </asp:GridView>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+					    <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Consulta Equipo saber en que Laboratorio esta y los detalles de Actualizaciones"></asp:Label>
+                        <br />
+&nbsp;<asp:Label ID="Label6" runat="server" Text="Ingresa tu Numero de Inventario:"></asp:Label>
+                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="Button3" runat="server" Text="Buscar" OnClick="Button3_Click" />
+                        <br />
+                        <asp:GridView ID="GridView3" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                        </asp:GridView>
 				</div>
 			</div>
 			
@@ -355,9 +328,8 @@
 		</div>
 	</div>
     </form>
-
 </body>
-            	<!-- js -->
+                    	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>
 	<script src="vendors/scripts/process.js"></script>

@@ -52,6 +52,7 @@
     <Compile Include="CapaNegocioComFinImg.cs" />
     <Compile Include="CapaNegocioComponentes.cs" />
     <Compile Include="CapaNegocioComputFinal.cs" />
+    <Compile Include="CapaNegocioConsultas.cs" />
     <Compile Include="CapaNegocioCPUGenerico.cs" />
     <Compile Include="CapaNegocioDiscoDuro.cs" />
     <Compile Include="CapaNegocioGabinete.cs" />

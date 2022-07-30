@@ -80,6 +80,7 @@
     <Content Include="cantdiscos.aspx" />
     <Content Include="componentes.aspx" />
     <Content Include="computadorafinal.aspx" />
+    <Content Include="consultas.aspx" />
     <Content Include="cpugenerico.aspx" />
     <Content Include="discoduro.aspx" />
     <Content Include="gabinete.aspx" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="computadorafinal.aspx.designer.cs">
       <DependentUpon>computadorafinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="consultas.aspx.cs">
+      <DependentUpon>consultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consultas.aspx.designer.cs">
+      <DependentUpon>consultas.aspx</DependentUpon>
     </Compile>
     <Compile Include="cpugenerico.aspx.cs">
       <DependentUpon>cpugenerico.aspx</DependentUpon>
