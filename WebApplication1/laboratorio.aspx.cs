@@ -52,20 +52,28 @@ namespace WebApplication1
         {
             string m = "";
             Session["Tabla1"] = objBAct.ObtenTodLaboratorio(ref m);
-            GridView1.DataSource = Session["Tabla1"];
+            GridView2.DataSource = Session["Tabla1"];
             TextBox2.Text = m;
-            GridView1.DataBind();
+            GridView2.DataBind();
         }
 
         protected void Button4_Click(object sender, EventArgs e)
         {
             EntidadLaboratorio nuevo = new EntidadLaboratorio()
             {
-                nombre_laboratorio = DropDownList2.SelectedValue
+                nombre_laboratorio = TextBox3.Text
             };
             string cad = "";
             objBAct.EliminarLaboratorio(nuevo, ref cad);
             TextBox2.Text = cad;
+            TextBox3.Text = "";
+        }
+
+        //metodo para traer datos y poder eliminar
+        protected void chk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox3.Text = GridView2.Rows[rowind].Cells[1].Text;
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,20 +81,43 @@ namespace WebApplication1
 
         }
 
-        protected void Button6_Click(object sender, EventArgs e)
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<EntidadLaboratorio> listaAtrapada = null;
-            string m = "";
-            listaAtrapada = objBAct.DevuelveInfoLaboratorio(ref m);
-            DropDownList2.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList2.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].nombre_laboratorio + " "
-                        ));
-            }
-            TextBox2.Text = m;
+
         }
+
+
+
+        //protected void Button7_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadLaboratorio> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objBAct.DevuelveInfoLaboratorio(ref m);
+        //    DropDownList3.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList3.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].nombre_laboratorio + " "
+
+
+        //                ));
+        //    }
+        //    TextBox2.Text = m;
+        //}
+
+        //protected void Button3_Click(object sender, EventArgs e)
+        //{
+        //    EntidadLaboratorio nuevo = new EntidadLaboratorio()
+        //    {
+
+        //        nombre_laboratorio = TextBox3.Text
+
+        //    };
+        //    string cad = "";
+        //    objBAct.ModificarLaboratorio(nuevo, ref cad);
+        //    TextBox2.Text = cad;
+        //    TextBox1.Text = "";
+        //}
     }
 }

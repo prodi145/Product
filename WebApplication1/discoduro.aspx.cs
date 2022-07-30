@@ -80,36 +80,96 @@ namespace WebApplication1
         {
             string m = "";
             Session["Tabla1"] = objDiscoD.ObtenTodDiscoDuro(ref m);
-            GridView1.DataSource = Session["Tabla1"];
+            GridView2.DataSource = Session["Tabla1"];
             TextBox5.Text = m;
-            GridView1.DataBind();
+            GridView2.DataBind();
         }
 
-        protected void Button6_Click(object sender, EventArgs e)
-        {
-            List<EntidadDiscoDuro> listaAtrapada = null;
-            string m = "";
-            listaAtrapada = objDiscoD.DevuelveInfoDiscoDuro(ref m);
-            DropDownList2.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList2.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].TipoDisco + " "
-                        ));
-            }
-            TextBox5.Text = m;
-        }
+        //protected void Button6_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadDiscoDuro> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objDiscoD.DevuelveInfoDiscoDuro(ref m);
+        //    DropDownList2.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList2.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].TipoDisco + " "
+        //                ));
+        //    }
+        //    TextBox5.Text = m;
+        //}
 
         protected void Button4_Click(object sender, EventArgs e)
         {
             EntidadDiscoDuro nuevo = new EntidadDiscoDuro()
             {
-                TipoDisco = DropDownList2.SelectedValue,
+                id_Disco =Convert.ToInt16(TextBox11.Text)
             };
             string cad = "";
             objDiscoD.EliminarDiscoDuro(nuevo, ref cad);
             TextBox5.Text = cad;
+            TextBox11.Text = "";
+        }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            List<EntidadMarca> listaAtrapada = null;
+            string m = "";
+            listaAtrapada = objMarc.DevuelveIDMarca(ref m);
+            DropDownList3.Items.Clear();
+            for (int a = 0; a < listaAtrapada.Count; a++)
+            {
+                DropDownList3.Items.Add(
+                    new ListItem(
+                        listaAtrapada[a].Id_Marca + " "
+                        ));
+            }
+            TextBox5.Text = m;
+        }
+
+        //metodo para traer datos y poder eliminar
+        protected void chk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox11.Text = GridView2.Rows[rowind].Cells[2].Text;
+        }
+
+        //metodo para traer datos y poder modificar
+        protected void chkk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind2 = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox6.Text = GridView2.Rows[rowind2].Cells[2].Text;
+            TextBox7.Text = GridView2.Rows[rowind2].Cells[3].Text;
+            TextBox8.Text = GridView2.Rows[rowind2].Cells[4].Text;
+            TextBox9.Text = GridView2.Rows[rowind2].Cells[5].Text;
+            TextBox10.Text = GridView2.Rows[rowind2].Cells[7].Text;
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            EntidadDiscoDuro nuevo = new EntidadDiscoDuro()
+            {
+                id_Disco = Convert.ToInt16(TextBox6.Text),
+                TipoDisco = TextBox7.Text,
+                conector = TextBox8.Text,
+                Capacidad = TextBox9.Text,
+                F_MarcaDisco = Convert.ToInt16(DropDownList3.SelectedValue),
+                Extra = TextBox10.Text
+            };
+            string cad = "";
+            objDiscoD.ModificarDiscoDuro(nuevo, ref cad);
+            TextBox5.Text = cad;
+            TextBox7.Text = "";
+            TextBox8.Text = "";
+            TextBox9.Text = "";
+            TextBox10.Text = "";
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

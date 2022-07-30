@@ -43,19 +43,22 @@ namespace ClassBLInventario
 
         public Boolean ModificarTipoCPU(EntidadTipoCPU nuevo, ref string m)
         {
-            string sentencia = "UPDATE Tipo_CPU set Tipo = @tip, Familia = @fam, Velocidad = @veloc, Extra = @extr WHERE id_Tcpu = @id";
+            string sentencia = "UPDATE Tipo_CPU set Tipo = @tip, Familia = @fam, Velocidad = @veloc, Extra = @extr, idmodcpu = @model WHERE id_Tcpu = @id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
                 new SqlParameter("id",SqlDbType.Int),
                 new SqlParameter("tip",SqlDbType.VarChar,40),
                 new SqlParameter("fam",SqlDbType.VarChar,30),
                 new SqlParameter("veloc",SqlDbType.VarChar,50),
-                new SqlParameter("extr",SqlDbType.VarChar,30)
+                new SqlParameter("extr",SqlDbType.VarChar,30),
+                new SqlParameter("model",SqlDbType.Int)
             };
-            coleccion[0].Value = nuevo.Tipo;
-            coleccion[1].Value = nuevo.Familia;
-            coleccion[2].Value = nuevo.Velocidad;
-            coleccion[3].Value = nuevo.Extra;
+            coleccion[0].Value = nuevo.id_Tcup;
+            coleccion[1].Value = nuevo.Tipo;
+            coleccion[2].Value = nuevo.Familia;
+            coleccion[3].Value = nuevo.Velocidad;
+            coleccion[4].Value = nuevo.Extra;
+            coleccion[5].Value = nuevo.id_modCPU;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;
@@ -63,12 +66,12 @@ namespace ClassBLInventario
         
         public Boolean EliminarTipoCPU(EntidadTipoCPU nuevo, ref string m)
         {
-            string sentencia = "DELETE FROM Tipo_CPU WHERE Tipo = @tip";
+            string sentencia = "DELETE FROM Tipo_CPU WHERE id_Tcpu = @id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("tip",SqlDbType.VarChar,40)
+                new SqlParameter("id",SqlDbType.Int)
             };
-            coleccion[0].Value = nuevo.Tipo;
+            coleccion[0].Value = nuevo.id_Tcup;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;
@@ -109,6 +112,36 @@ namespace ClassBLInventario
 
                     }
                     ); 
+
+                }
+            }
+            cn.Close();
+            cn.Dispose();
+            return lista;
+        }
+
+        public List<EntidadTipoCPU> DevuelveIdTipoCPU(ref string mensaje)
+        {
+            List<EntidadTipoCPU> lista = new List<EntidadTipoCPU>();
+            SqlDataReader atrapa = null;
+            SqlConnection cn = null;
+            cn = operacion.AbrirConexion(ref mensaje);
+            string consulta = "select * from Tipo_CPU";
+            atrapa = operacion.ConsultaDR(consulta, cn, ref mensaje);
+            if (atrapa != null)
+            {
+                while (atrapa.Read())
+                {
+                    lista.Add(new EntidadTipoCPU()
+                    {
+                        id_Tcup = Convert.ToInt16(atrapa[0]),
+                        Tipo = atrapa[1].ToString(),
+                        Familia = atrapa[2].ToString(),
+                        Velocidad = atrapa[3].ToString(),
+                        Extra = atrapa[4].ToString()
+
+                    }
+                    );
 
                 }
             }

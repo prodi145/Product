@@ -36,12 +36,12 @@ namespace ClassBLInventario
 
         public Boolean EliminarComponentes(EntidadComponentes nuevo, ref string m)
         {
-            string sentencia = "DELETE FROM Componentes WHERE categoria = @cate";
+            string sentencia = "DELETE FROM Componentes WHERE id_Componente = @id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("cate",SqlDbType.VarChar,16),
+                new SqlParameter("id",SqlDbType.Int),
             };
-            coleccion[0].Value = nuevo.categoria;
+            coleccion[0].Value = nuevo.id_Componente;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;

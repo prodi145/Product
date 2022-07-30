@@ -45,7 +45,7 @@ namespace ClassBLInventario
 
         public Boolean ModificarDiscoDuro(EntidadDiscoDuro nuevo, ref string m)
         {
-            string sentencia = "UPDATE DiscoDuro set TipoDisco = @tip, connector = @con, Capacidad = @cap, F_MarcaDisco = @f_MaDis, Extra = @ext WHERE id_Disco =@id";
+            string sentencia = "UPDATE DiscoDuro set TipoDisco = @tip, conector = @con, Capacidad = @cap, F_MarcaDisco = @f_MaDis, Extra = @ext WHERE id_Disco =@id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
                 new SqlParameter("id",SqlDbType.Int),
@@ -127,12 +127,12 @@ namespace ClassBLInventario
 
         public Boolean EliminarDiscoDuro(EntidadDiscoDuro nuevo, ref string m)
         {
-            string sentencia = "DELETE FROM DiscoDuro WHERE TipoDisco = @tip";
+            string sentencia = "DELETE FROM DiscoDuro WHERE id_Disco =@id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("tip",SqlDbType.VarChar,120),
+                new SqlParameter("id",SqlDbType.Int),
             };
-            coleccion[0].Value = nuevo.TipoDisco;
+            coleccion[0].Value = nuevo.id_Disco;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;

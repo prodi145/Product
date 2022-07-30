@@ -91,9 +91,9 @@ namespace WebApplication1
         {
             string m = "";
             Session["Tabla1"] = objCant.ObtenTodCantidadDisc(ref m);
-            GridView1.DataSource = Session["Tabla1"];
+            GridView2.DataSource = Session["Tabla1"];
             TextBox3.Text = m;
-            GridView1.DataBind();
+            GridView2.DataBind();
         }
 
         protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,15 +101,43 @@ namespace WebApplication1
 
         }
 
-        protected void Button7_Click(object sender, EventArgs e)
+        //protected void Button7_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadCantDisc> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objCant.DevuelveInfoCantDisco(ref m);
+        //    DropDownList3.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList3.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].num_inv + " "
+        //                ));
+        //    }
+        //    TextBox3.Text = m;
+        //}
+
+        protected void Button4_Click(object sender, EventArgs e)
         {
-            List<EntidadCantDisc> listaAtrapada = null;
+            EntidadCantDisc nuevo = new EntidadCantDisc()
+            {
+               id_cant  = Convert.ToInt16(TextBox4.Text),
+            };
+            string cad = "";
+            objCant.EliminarCantDisc(nuevo, ref cad);
+            TextBox3.Text = cad;
+            TextBox4.Text = "";
+        }
+
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+            List<EntidadComputadoraFinal> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objCant.DevuelveInfoCantDisco(ref m);
-            DropDownList3.Items.Clear();
+            listaAtrapada = objComFin.DevuelveInfoComputadorFinal(ref m);
+            DropDownList4.Items.Clear();
             for (int a = 0; a < listaAtrapada.Count; a++)
             {
-                DropDownList3.Items.Add(
+                DropDownList4.Items.Add(
                     new ListItem(
                         listaAtrapada[a].num_inv + " "
                         ));
@@ -117,15 +145,53 @@ namespace WebApplication1
             TextBox3.Text = m;
         }
 
-        protected void Button4_Click(object sender, EventArgs e)
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+            List<EntidadDiscoDuro> listaAtrapada = null;
+            string m = "";
+            listaAtrapada = objDis.DevuelveIdDiscoDuro(ref m);
+            DropDownList5.Items.Clear();
+            for (int a = 0; a < listaAtrapada.Count; a++)
+            {
+                DropDownList5.Items.Add(
+                    new ListItem(
+                        listaAtrapada[a].id_Disco + " "
+                        ));
+            }
+            TextBox3.Text = m;
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
         {
             EntidadCantDisc nuevo = new EntidadCantDisc()
             {
-                num_inv = DropDownList3.SelectedValue,
+                id_cant = Convert.ToInt16(TextBox5.Text),
+                num_inv = Convert.ToString(DropDownList4.SelectedValue),
+                id_Disco = Convert.ToInt16(DropDownList5.SelectedValue),
             };
             string cad = "";
-            objCant.EliminarCantDisc(nuevo, ref cad);
+            objCant.ModificarCantDisco(nuevo, ref cad);
             TextBox3.Text = cad;
+            TextBox5.Text = "";
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        //metodo para traer datos y poder eliminar
+        protected void chk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox4.Text = GridView2.Rows[rowind].Cells[2].Text;
+        }
+
+        //metodo para traer datos y poder modificar
+        protected void chkk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind2 = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox5.Text = GridView2.Rows[rowind2].Cells[2].Text;
         }
     }
 }

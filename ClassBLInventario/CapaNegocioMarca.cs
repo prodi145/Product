@@ -96,10 +96,7 @@ namespace ClassBLInventario
                 {
                     lista.Add(new EntidadMarca()
                     {
-                        Id_Marca = Convert.ToInt16(atrapa[0]),
-                        Marca = atrapa[1].ToString(),
-                        Id_Componente = atrapa[2].ToString(),
-                        Extra = atrapa[3].ToString()
+                        Id_Marca = Convert.ToInt16(atrapa[0])
                     }
                     );
                 }

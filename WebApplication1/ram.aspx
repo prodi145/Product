@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
     <style>
-        #GridView1{
+        #GridView2{
             width:600px;
         }
     </style>
@@ -245,62 +245,108 @@
 				<div class="">
 					<asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Guardar Nueva RAM"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox3" runat="server" Width="303px"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" Width="303px" ReadOnly="true"></asp:TextBox>
             <br />
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label2" runat="server" Text="Capacidad: "></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox1" runat="server" style="margin-bottom: 0px" Width="328px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox1" runat="server" style="margin-bottom: 0px" Width="278px"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" Text="Velocidad:"></asp:Label>
             &nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" Width="313px"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TextBox2" runat="server" Width="279px"></asp:TextBox>
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label6" runat="server" Text="Tipo de RAM:"></asp:Label>
+&nbsp;
 &nbsp;<asp:DropDownList ID="DropDownList1"  runat="server" Height="23px" Width="285px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             </asp:DropDownList>
-            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Cargar Modelos " />
+            <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Cargar Tip RAM" />
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button1" runat="server" Text="Guardar" OnClick="Button1_Click" Height="27px" />
-        &nbsp;&nbsp;&nbsp;
-           <asp:Button ID="Button3" runat="server" Text="Editar" />
+        &nbsp;&nbsp;&nbsp;<br />
+                    <br />
+                    <br />
+           <asp:Button ID="Button2" runat="server" Text="Ver Datos" OnClick="Button2_Click" />
+                    <br />
+                    <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+               <AlternatingRowStyle BackColor="White" />
+             
+               <EditRowStyle BackColor="#2461BF" />
+               <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+               <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+               <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+               <RowStyle BackColor="#EFF3FB" />
+               <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+               <SortedAscendingCellStyle BackColor="#F5F7FB" />
+               <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+               <SortedDescendingCellStyle BackColor="#E9EBEF" />
+               <SortedDescendingHeaderStyle BackColor="#4870BE" />
+               <Columns>
+               <asp:TemplateField>
+               <ItemTemplate>
+               <asp:CheckBox Text="Eliminar" ID="chk" runat="server" AutoPostBack="True" OnCheckedChanged="chk_CheckedChanged" />
+               </ItemTemplate>
+               </asp:TemplateField>
+               </Columns>
+
+                <Columns>
+               <asp:TemplateField>
+               <ItemTemplate>
+               <asp:CheckBox Text="Modificar" ID="chk2" runat="server" AutoPostBack="True" OnCheckedChanged="chkk_CheckedChanged" />
+               </ItemTemplate>
+               </asp:TemplateField>
+               </Columns>
+           </asp:GridView>
+                    <br />
+                    <br />
+					<asp:Label ID="Label11" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Modificar"></asp:Label>
+                    (selecciona renglon(registro) que quieres modificar)<br />
+&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label12" runat="server" Text="Id: "></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBox7" runat="server" Width="329px" ReadOnly="true"></asp:TextBox>
+                    <br />
+                    <br />
+&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label8" runat="server" Text="Capacidad: "></asp:Label>
+&nbsp;<asp:TextBox ID="TextBox4" runat="server" style="margin-bottom: 0px" Width="328px"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label9" runat="server" Text="Velocidad:"></asp:Label>
+            &nbsp;
+            &nbsp;
+            <asp:TextBox ID="TextBox5" runat="server" Width="326px"></asp:TextBox>
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label10" runat="server" Text="Tipo de RAM:"></asp:Label>
+&nbsp;<asp:DropDownList ID="DropDownList3"  runat="server" Height="23px" Width="323px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+            </asp:DropDownList>
+                    <asp:Button ID="Button9" runat="server" OnClick="Button9_Click" Text="Cargar Nuevo TipRAM" Width="165px" />
+                    <br />
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <asp:Button ID="Button3" runat="server" Text="Editar" OnClick="Button3_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
                     <br />
-        <br />
+                    <br />
             <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar RAM"></asp:Label>
-            &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Recuperar RAM" Width="119px" />
+                    (selecciona renglon(registro) que quieres eliminar)&nbsp;&nbsp;&nbsp;
            <br />
-           <asp:DropDownList ID="DropDownList2" runat="server" Height="23px" Width="286px">
-        </asp:DropDownList>
+                    <asp:TextBox ID="TextBox6" runat="server" ReadOnly="true"></asp:TextBox>
 &nbsp;&nbsp; &nbsp;&nbsp;
            <asp:Button ID="Button4" runat="server" Text="Elimar" OnClick="Button4_Click" />
            <br />
-           <br />
-           <br />
-           <asp:Button ID="Button2" runat="server" Text="Ver Datos" OnClick="Button2_Click" />
-           <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" cellspacing ="5">
-                <AlternatingRowStyle BackColor="White" />
-                <EditRowStyle BackColor="#2461BF" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
-                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                <SortedDescendingHeaderStyle BackColor="#4870BE" />
-            </asp:GridView>
+                    <br />
 				</div>
 			</div>
 			

@@ -47,36 +47,71 @@ namespace WebApplication1
         {
             string m = "";
             Session["Tabla1"] = objCompo.ObtenTodComponentes(ref m);
-            GridView1.DataSource = Session["Tabla1"];
+            GridView2.DataSource = Session["Tabla1"];
             TextBox3.Text = m;
-            GridView1.DataBind();
+            GridView2.DataBind();
         }
 
-        protected void Button5_Click(object sender, EventArgs e)
-        {
-            List<EntidadComponentes> listaAtrapada = null;
-            string m = "";
-            listaAtrapada = objCompo.DevuelveInfoComponentes(ref m);
-            DropDownList1.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList1.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].categoria + " "
-                        ));
-            }
-            TextBox3.Text = m;
-        }
+        //protected void Button5_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadComponentes> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objCompo.DevuelveInfoComponentes(ref m);
+        //    DropDownList1.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList1.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].categoria + " "
+        //                ));
+        //    }
+        //    TextBox3.Text = m;
+        //}
 
         protected void Button4_Click(object sender, EventArgs e)
         {
             EntidadComponentes nuevo = new EntidadComponentes()
             {
-                categoria = DropDownList1.SelectedValue,
+                id_Componente = Convert.ToInt16(TextBox6.Text),
             };
             string cad = "";
             objCompo.EliminarComponentes(nuevo, ref cad);
             TextBox3.Text = cad;
+            TextBox6.Text = "";
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            EntidadComponentes nuevo = new EntidadComponentes()
+            {
+                id_Componente = Convert.ToInt16(TextBox5.Text),
+                categoria = TextBox4.Text
+            };
+            string cad = "";
+            objCompo.ModificarComponentes(nuevo, ref cad);
+            TextBox3.Text = cad;
+            TextBox5.Text = "";
+            TextBox4.Text = "";
+        }
+
+        //metodo para traer datos y poder eliminar
+        protected void chk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox6.Text = GridView2.Rows[rowind].Cells[2].Text;
+        }
+
+        //metodo para traer datos y poder modificar
+        protected void chkk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind2 = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox5.Text = GridView2.Rows[rowind2].Cells[2].Text;
+            TextBox4.Text = GridView2.Rows[rowind2].Cells[3].Text;
         }
     }
 }

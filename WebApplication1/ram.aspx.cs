@@ -76,9 +76,9 @@ namespace WebApplication1
         {
             string m = "";
             Session["Tabla1"] = objRAM.ObtenTodaRAM(ref m);
-            GridView1.DataSource = Session["Tabla1"];
+            GridView2.DataSource = Session["Tabla1"];
             TextBox3.Text = m;
-            GridView1.DataBind();
+            GridView2.DataBind();
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,31 +86,106 @@ namespace WebApplication1
 
         }
 
-        protected void Button6_Click(object sender, EventArgs e)
-        {
-            List<EntidadRAM> listaAtrapada = null;
-            string m = "";
-            listaAtrapada = objRAM.DevuelveInfoRAM(ref m);
-            DropDownList2.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList2.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].Capacidad + " "
-                        ));
-            }
-            TextBox3.Text = m;
-        }
+        //protected void Button6_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadRAM> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objRAM.DevuelveInfoRAM(ref m);
+        //    DropDownList2.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList2.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].Capacidad + " "
+        //                ));
+        //    }
+        //    TextBox3.Text = m;
+        //}
 
         protected void Button4_Click(object sender, EventArgs e)
         {
             EntidadRAM nuevo = new EntidadRAM()
             {
-                Capacidad = Convert.ToInt16(DropDownList2.SelectedValue)
+               id_RAM = Convert.ToInt16(TextBox6.Text)
             };
             string cad = "";
             objRAM.EliminarRAM(nuevo, ref cad);
             TextBox3.Text = cad;
+            TextBox6.Text = "";
+        }
+
+        //protected void Button8_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadRAM> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objRAM.DevuelveIdRAM(ref m);
+        //    DropDownList4.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList4.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].id_RAM + " "
+
+
+        //                ));
+        //    }
+        //    TextBox3.Text = m;
+        //}
+
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+            List<EntidadTipoRAM> listaAtrapada = null;
+            string m = "";
+
+            listaAtrapada = objTipRAM.DevuelveIdTipRAM(ref m);
+
+            DropDownList3.Items.Clear();
+            for (int a = 0; a < listaAtrapada.Count; a++)
+            {
+                DropDownList3.Items.Add(
+                    new ListItem(
+                        listaAtrapada[a].id_tipoRam + " "
+                        ));
+            }
+            TextBox3.Text = m;
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            EntidadRAM nuevo = new EntidadRAM()
+            {
+                id_RAM = Convert.ToInt16(TextBox7.Text),
+                Capacidad = Convert.ToInt16(TextBox4.Text),
+                Velocidad = TextBox5.Text,
+                F_TipoR = Convert.ToInt16(DropDownList3.SelectedValue)
+            };
+            string cad = "";
+            objRAM.ModificarRAM(nuevo, ref cad);
+            TextBox3.Text = cad;
+            TextBox7.Text = "";
+            TextBox4.Text = "";
+            TextBox5.Text = "";
+        }
+
+        //metodo para traer datos y poder eliminar
+        protected void chk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox6.Text = GridView2.Rows[rowind].Cells[2].Text;
+        }
+
+        //metodo para traer datos y poder modificar
+        protected void chkk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind2 = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox7.Text = GridView2.Rows[rowind2].Cells[2].Text;
+            TextBox4.Text = GridView2.Rows[rowind2].Cells[3].Text;
+            TextBox5.Text = GridView2.Rows[rowind2].Cells[4].Text;
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

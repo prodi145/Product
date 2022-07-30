@@ -78,9 +78,9 @@ namespace WebApplication1
         {
             string m = "";
             Session["Tabla1"] = objTipCPU.ObtenTodoTipoCPU(ref m);
-            GridView1.DataSource = Session["Tabla1"];
+            GridView2.DataSource = Session["Tabla1"];
             TextBox3.Text = m;
-            GridView1.DataBind();
+            GridView2.DataBind();
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,31 +88,112 @@ namespace WebApplication1
             
         }
 
-        protected void Button6_Click(object sender, EventArgs e)
-        {
-            List<EntidadTipoCPU> listaAtrapada = null;
-            string m = "";
-            listaAtrapada = objTipCPU.DevuelveInfoTipoCPU(ref m);
-            DropDownList2.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList2.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].Tipo + " "
-                        ));
-            }
-            TextBox3.Text = m;
-        }
+        //protected void Button6_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadTipoCPU> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objTipCPU.DevuelveInfoTipoCPU(ref m);
+        //    DropDownList2.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList2.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].Tipo + " "
+        //                ));
+        //    }
+        //    TextBox3.Text = m;
+        //}
 
         protected void Button4_Click(object sender, EventArgs e)
         {
             EntidadTipoCPU nuevo = new EntidadTipoCPU()
             {
-                Tipo = DropDownList2.SelectedValue,
+                id_Tcup = Convert.ToInt16(TextBox10.Text)
             };
             string cad = "";
             objTipCPU.EliminarTipoCPU(nuevo, ref cad);
             TextBox3.Text = cad;
+            TextBox10.Text = "";
+        }
+
+        //protected void Button7_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadTipoCPU> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada =objTipCPU.DevuelveIdTipoCPU(ref m);
+        //    DropDownList3.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList3.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].id_Tcup + " "
+
+
+        //                ));
+        //    }
+        //    TextBox3.Text = m;
+        //}
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            EntidadTipoCPU nuevo = new EntidadTipoCPU()
+            {
+                id_Tcup = Convert.ToInt16(TextBox11.Text),
+                Tipo = TextBox6.Text,
+                Familia = TextBox7.Text,
+                Velocidad = TextBox8.Text,
+                Extra = TextBox9.Text,
+                id_modCPU = Convert.ToInt16(DropDownList4.SelectedValue)
+            };
+            string cad = "";
+            objTipCPU.ModificarTipoCPU(nuevo, ref cad);
+            TextBox3.Text = cad;
+            TextBox11.Text = "";
+            TextBox6.Text = "";
+            TextBox7.Text = "";
+            TextBox8.Text = "";
+            TextBox9.Text = "";
+        }
+
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+            List<EntidadModeloCPU> listaAtrapada = null;
+            string m = "";
+            int b = 0;
+            listaAtrapada = objModelCPU.DevuelveIdModeloCPU(ref m);
+
+            DropDownList4.Items.Clear();
+            for (int a = 0; a < listaAtrapada.Count; a++)
+            {
+                DropDownList4.Items.Add(
+                    new ListItem(
+                        listaAtrapada[a].id_modcpu + " "
+                        ));
+            }
+            TextBox3.Text = m;
+        }
+
+        //metodo para traer datos y poder eliminar
+        protected void chk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox10.Text = GridView2.Rows[rowind].Cells[2].Text;
+        }
+
+        //metodo para traer datos y poder modificar
+        protected void chkk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind2 = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox11.Text = GridView2.Rows[rowind2].Cells[2].Text;
+            TextBox6.Text = GridView2.Rows[rowind2].Cells[3].Text;
+            TextBox7.Text = GridView2.Rows[rowind2].Cells[4].Text;
+            TextBox8.Text = GridView2.Rows[rowind2].Cells[5].Text;
+            TextBox9.Text = GridView2.Rows[rowind2].Cells[6].Text;
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

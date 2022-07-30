@@ -44,8 +44,9 @@ namespace ClassBLInventario
                 new SqlParameter("tip",SqlDbType.VarChar,20),
                 new SqlParameter("extr",SqlDbType.VarChar,30)
             };
-            coleccion[0].Value = nuevo.Tipo;
-            coleccion[1].Value = nuevo.Extra;
+            coleccion[0].Value = nuevo.id_tipoRam;
+            coleccion[1].Value = nuevo.Tipo;
+            coleccion[2].Value = nuevo.Extra;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;
@@ -53,12 +54,12 @@ namespace ClassBLInventario
 
         public Boolean EliminarTipoRAM(EntidadTipoRAM nuevo, ref string m)
         {
-            string sentencia = "DELETE FROM TipoRAM WHERE Tipo = @tip";
+            string sentencia = "DELETE FROM TipoRAM WHERE id_tipoRAM = @id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("tip",SqlDbType.VarChar,20)
+                new SqlParameter("id",SqlDbType.Int)
             };
-            coleccion[0].Value = nuevo.Tipo;
+            coleccion[0].Value = nuevo.id_tipoRam;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;

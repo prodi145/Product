@@ -65,6 +65,34 @@ namespace ClassBLInventario
             return lista;
         }
 
+        public List<EntidadRAM> DevuelveIdRAM(ref string mensaje)
+        {
+            List<EntidadRAM> lista = new List<EntidadRAM>();
+            SqlDataReader atrapa = null;
+            SqlConnection cn = null;
+            cn = operacion.AbrirConexion(ref mensaje);
+            string consulta = "select * from RAM";
+            atrapa = operacion.ConsultaDR(consulta, cn, ref mensaje);
+            if (atrapa != null)
+            {
+                while (atrapa.Read())
+                {
+                    lista.Add(new EntidadRAM()
+                    {
+                        id_RAM = Convert.ToInt16(atrapa[0]),
+                        Capacidad = Convert.ToInt16(atrapa[1]),
+                        Velocidad = atrapa[2].ToString(),
+
+                    }
+                    );
+
+                }
+            }
+            cn.Close();
+            cn.Dispose();
+            return lista;
+        }
+
         public Boolean ModificarRAM(EntidadRAM nuevo, ref string m)
         {
             string sentencia = "UPDATE RAM set Capacidad = @ca, Velocidad = @vel, F_TipoR = @f_tip WHERE Id_RAM = @id";
@@ -86,12 +114,12 @@ namespace ClassBLInventario
 
         public Boolean EliminarRAM(EntidadRAM nuevo, ref string m)
         {
-            string sentencia = "DELETE FROM RAM WHERE Capacidad = @ca";
+            string sentencia = "DELETE FROM RAM WHERE Id_RAM = @id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("ca",SqlDbType.SmallInt)
+                new SqlParameter("id",SqlDbType.SmallInt)
             };
-            coleccion[0].Value = nuevo.Capacidad;
+            coleccion[0].Value = nuevo.id_RAM;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;

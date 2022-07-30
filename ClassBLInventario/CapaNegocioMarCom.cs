@@ -94,12 +94,12 @@ namespace ClassBLInventario
 
         public Boolean EliminarMarcaComponente(EntidadMarCom nuevo, ref string m)
         {
-            string sentencia = "DELETE FROM marcom WHERE Idcomponente = @com";
+            string sentencia = "DELETE FROM marcom WHERE id_marcom = @id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("com",SqlDbType.Int),
+                new SqlParameter("id",SqlDbType.Int),
             };
-            coleccion[0].Value = nuevo.Idcomponente;
+            coleccion[0].Value = nuevo.id_marcom;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;

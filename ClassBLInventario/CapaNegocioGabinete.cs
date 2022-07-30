@@ -97,12 +97,12 @@ namespace ClassBLInventario
 
         public Boolean EliminarGabinete(EntidadGabinete nuevo, ref string m)
         {
-            string sentencia = "DELETE FROM Gabinete WHERE Modelo = @mo";
+            string sentencia = "DELETE FROM Gabinete WHERE id_Gabinete =@id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("mo",SqlDbType.VarChar,10),
+                new SqlParameter("id",SqlDbType.Int),
             };
-            coleccion[0].Value = nuevo.Modelo;
+            coleccion[0].Value = nuevo.id_Gabinete;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;

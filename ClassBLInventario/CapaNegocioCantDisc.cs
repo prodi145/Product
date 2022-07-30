@@ -38,12 +38,12 @@ namespace ClassBLInventario
 
         public Boolean EliminarCantDisc(EntidadCantDisc nuevo, ref string m)
         {
-            string sentencia = "DELETE FROM cantDisc WHERE num_inv = @num";
+            string sentencia = "DELETE FROM cantDisc WHERE id_cant =@id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
-                new SqlParameter("num",SqlDbType.VarChar,10),
+                new SqlParameter("id",SqlDbType.Int),
             };
-            coleccion[0].Value = nuevo.num_inv;
+            coleccion[0].Value = nuevo.id_cant;
             Boolean salida = false;
             salida = operacion.ModificarBDMasSeguro(sentencia, operacion.AbrirConexion(ref m), ref m, coleccion);
             return salida;
@@ -103,7 +103,7 @@ namespace ClassBLInventario
 
         public Boolean ModificarCantDisco(EntidadCantDisc nuevo, ref string m)
         {
-            string sentencia = "UPDATE cantDisc set num_inv = @nu, id_Disc = @idDis WHERE id_cant =@id";
+            string sentencia = "UPDATE cantDisc set num_inv = @nu, id_Disco = @idDis WHERE id_cant =@id";
             SqlParameter[] coleccion = new SqlParameter[]
             {
                 new SqlParameter("id",SqlDbType.Int),

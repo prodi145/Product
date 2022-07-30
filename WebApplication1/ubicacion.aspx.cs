@@ -91,36 +91,103 @@ namespace WebApplication1
         {
             string m = "";
             Session["Tabla1"] = objUb.ObtenTodaUbicacion(ref m);
-            GridView1.DataSource = Session["Tabla1"];
+            GridView2.DataSource = Session["Tabla1"];
             TextBox3.Text = m;
-            GridView1.DataBind();
+            GridView2.DataBind();
         }
 
         protected void Button4_Click(object sender, EventArgs e)
         {
             EntidadUbicacion nuevo = new EntidadUbicacion()
             {
-                num_inv = DropDownList3.SelectedValue,
+                num_inv = TextBox5.Text,
             };
             string cad = "";
             objUb.EliminarUbicacion(nuevo, ref cad);
             TextBox3.Text = cad;
+            TextBox5.Text = "";
         }
 
-        protected void Button7_Click(object sender, EventArgs e)
+        //protected void Button7_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadUbicacion> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objUb.DevuelveInfUbicacion(ref m);
+        //    DropDownList3.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList3.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].num_inv + " "
+        //                ));
+        //    }
+        //    TextBox3.Text = m;
+        //}
+
+        //protected void Button10_Click(object sender, EventArgs e)
+        //{
+        //    List<EntidadUbicacion> listaAtrapada = null;
+        //    string m = "";
+        //    listaAtrapada = objUb.DevuelveInfUbicacion(ref m);
+        //    DropDownList4.Items.Clear();
+        //    for (int a = 0; a < listaAtrapada.Count; a++)
+        //    {
+        //        DropDownList4.Items.Add(
+        //            new ListItem(
+        //                listaAtrapada[a].num_inv + " "
+
+
+        //                ));
+        //    }
+        //    TextBox3.Text = m;
+        //}
+
+        protected void Button12_Click(object sender, EventArgs e)
         {
-            List<EntidadUbicacion> listaAtrapada = null;
+            List<EntidadLaboratorio> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objUb.DevuelveInfUbicacion(ref m);
-            DropDownList3.Items.Clear();
+            listaAtrapada = objLab.DevuelveInfoLaboratorio(ref m);
+            DropDownList5.Items.Clear();
             for (int a = 0; a < listaAtrapada.Count; a++)
             {
-                DropDownList3.Items.Add(
+                DropDownList5.Items.Add(
                     new ListItem(
-                        listaAtrapada[a].num_inv + " "
+                        listaAtrapada[a].nombre_laboratorio + " "
                         ));
             }
             TextBox3.Text = m;
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            EntidadUbicacion nuevo = new EntidadUbicacion()
+            {
+                num_inv = Convert.ToString(TextBox4.Text),
+                nombre_laboratorio = Convert.ToString(DropDownList5.SelectedValue),
+            };
+            string cad = "";
+            objUb.ModificarUbicacion(nuevo, ref cad);
+            TextBox3.Text = cad;
+            TextBox4.Text = "";
+        }
+
+        //metodo para traer datos y poder eliminar
+        protected void chk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox5.Text = GridView2.Rows[rowind].Cells[2].Text;
+        }
+
+        //metodo para traer datos y poder modificar
+        protected void chkk_CheckedChanged(object sender, EventArgs e)
+        {
+            int rowind2 = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            TextBox4.Text = GridView2.Rows[rowind2].Cells[2].Text;
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

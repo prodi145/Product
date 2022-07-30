@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="src/plugins/datatables/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
     <style>
-        #GridView1{
+        #GridView2{
             width:600px;
         }
     </style>
@@ -245,7 +245,7 @@
 				<div class="">
 					 <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Guardar Nuevo Laboratorio"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox2" runat="server" Width="247px"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server" Width="247px" ReadOnly="true"></asp:TextBox>
         </div>
                 <br />
         <asp:Label ID="Label1" runat="server" Text="Nombre del Laboratorio:"></asp:Label>
@@ -256,39 +256,49 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Guardar" Width="84px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <asp:Button ID="Button3" runat="server" Text="Editar" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <br />
                 <p>
+                    &nbsp;<p>
+                    &nbsp;<p>
+           <asp:Button ID="Button2" runat="server" Text="Ver Datos" OnClick="Button2_Click" />
+                <p>
+           <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+               <AlternatingRowStyle BackColor="White" />
+             
+               <EditRowStyle BackColor="#2461BF" />
+               <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+               <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+               <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+               <RowStyle BackColor="#EFF3FB" />
+               <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+               <SortedAscendingCellStyle BackColor="#F5F7FB" />
+               <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+               <SortedDescendingCellStyle BackColor="#E9EBEF" />
+               <SortedDescendingHeaderStyle BackColor="#4870BE" />
+               <Columns>
+               <asp:TemplateField>
+               <ItemTemplate>
+               <asp:CheckBox Text="Eliminar" ID="chk" runat="server" AutoPostBack="True" OnCheckedChanged="chk_CheckedChanged" />
+               </ItemTemplate>
+               </asp:TemplateField>
+               </Columns>
+
+           </asp:GridView>
+           		<p>
+                    &nbsp;<p>
            <br />
             <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar Laboratorio"></asp:Label>
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Recuperar Laboratorio" Width="172px" />
-           <br />
-            <asp:DropDownList ID="DropDownList2" runat="server" Height="23px" Width="286px">
-            </asp:DropDownList>
-&nbsp;&nbsp;
+                    (selecciona renglon(registro) que quieres eliminar)&nbsp;&nbsp;&nbsp;
+            <br />
+                    <asp:TextBox ID="TextBox3" runat="server" ReadOnly="true"></asp:TextBox>
            <asp:Button ID="Button4" runat="server" Text="Elimar" OnClick="Button4_Click" />
            <br />
                 <p>
            <br />
-           <asp:Button ID="Button2" runat="server" Text="Ver Datos" OnClick="Button2_Click" />
            <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" cellspacing ="5">
-                <AlternatingRowStyle BackColor="White" />
-                <EditRowStyle BackColor="#2461BF" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
-                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                <SortedDescendingHeaderStyle BackColor="#4870BE" />
-            </asp:GridView>
-				</div>
+           		</div>
 			</div>
 			
 
