@@ -45,7 +45,7 @@ namespace WebApplication1
             {
                 Capacidad = Convert.ToInt16(TextBox1.Text),
                 Velocidad = TextBox2.Text,
-                F_TipoR = Convert.ToInt16(DropDownList1.SelectedValue)
+                F_TipoR = Convert.ToInt16(GridView3.Rows[GridView3.SelectedIndex].Cells[1].Text)
             };
             string cad = "";
             objRAM.InsertarRAM(nuevo, ref cad);
@@ -56,27 +56,18 @@ namespace WebApplication1
 
         protected void Button5_Click(object sender, EventArgs e)
         {
-            List<EntidadTipoRAM> listaAtrapada = null;
             string m = "";
-            
-            listaAtrapada = objTipRAM.DevuelveIdTipRAM(ref m);
-
-            DropDownList1.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList1.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].id_tipoRam + " "
-                        ));
-            }
+            Session["Tabla1"] = objTipRAM.ObtenTodoTipoRAM(ref m);
+            GridView3.DataSource = Session["Tabla1"];
             TextBox3.Text = m;
+            GridView3.DataBind();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             string m = "";
-            Session["Tabla1"] = objRAM.ObtenTodaRAM(ref m);
-            GridView2.DataSource = Session["Tabla1"];
+            Session["Tabla2"] = objRAM.ObtenTodaRAM(ref m);
+            GridView2.DataSource = Session["Tabla2"];
             TextBox3.Text = m;
             GridView2.DataBind();
         }
@@ -102,17 +93,7 @@ namespace WebApplication1
         //    TextBox3.Text = m;
         //}
 
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            EntidadRAM nuevo = new EntidadRAM()
-            {
-               id_RAM = Convert.ToInt16(TextBox6.Text)
-            };
-            string cad = "";
-            objRAM.EliminarRAM(nuevo, ref cad);
-            TextBox3.Text = cad;
-            TextBox6.Text = "";
-        }
+      
 
         //protected void Button8_Click(object sender, EventArgs e)
         //{
@@ -134,20 +115,11 @@ namespace WebApplication1
 
         protected void Button9_Click(object sender, EventArgs e)
         {
-            List<EntidadTipoRAM> listaAtrapada = null;
             string m = "";
-
-            listaAtrapada = objTipRAM.DevuelveIdTipRAM(ref m);
-
-            DropDownList3.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList3.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].id_tipoRam + " "
-                        ));
-            }
+            Session["Tabla3"] = objTipRAM.ObtenTodoTipoRAM(ref m);
+            GridView4.DataSource = Session["Tabla3"];
             TextBox3.Text = m;
+            GridView4.DataBind();
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -157,7 +129,7 @@ namespace WebApplication1
                 id_RAM = Convert.ToInt16(TextBox7.Text),
                 Capacidad = Convert.ToInt16(TextBox4.Text),
                 Velocidad = TextBox5.Text,
-                F_TipoR = Convert.ToInt16(DropDownList3.SelectedValue)
+                F_TipoR = Convert.ToInt16(GridView4.Rows[GridView4.SelectedIndex].Cells[1].Text)
             };
             string cad = "";
             objRAM.ModificarRAM(nuevo, ref cad);
@@ -171,7 +143,18 @@ namespace WebApplication1
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox6.Text = GridView2.Rows[rowind].Cells[2].Text;
+            EntidadRAM nuevo = new EntidadRAM()
+            {
+                id_RAM = Convert.ToInt16(GridView2.Rows[rowind].Cells[2].Text)
+            };
+            string cad = "";
+            objRAM.EliminarRAM(nuevo, ref cad);
+
+            string m = "";
+            Session["Tabla1"] = objRAM.ObtenTodaRAM(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox3.Text = m;
+            GridView2.DataBind();
         }
 
         //metodo para traer datos y poder modificar

@@ -57,23 +57,36 @@ namespace WebApplication1
             GridView2.DataBind();
         }
 
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            EntidadLaboratorio nuevo = new EntidadLaboratorio()
-            {
-                nombre_laboratorio = TextBox3.Text
-            };
-            string cad = "";
-            objBAct.EliminarLaboratorio(nuevo, ref cad);
-            TextBox2.Text = cad;
-            TextBox3.Text = "";
-        }
+        //protected void Button4_Click(object sender, EventArgs e)
+        //{
+        //    EntidadLaboratorio nuevo = new EntidadLaboratorio()
+        //    {
+        //        nombre_laboratorio = TextBox3.Text
+        //    };
+        //    string cad = "";
+        //    objBAct.EliminarLaboratorio(nuevo, ref cad);
+        //    TextBox2.Text = cad;
+        //    TextBox3.Text = "";
+        //}
 
         //metodo para traer datos y poder eliminar
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox3.Text = GridView2.Rows[rowind].Cells[1].Text;
+            EntidadLaboratorio nuevo = new EntidadLaboratorio()
+            {
+                nombre_laboratorio = GridView2.Rows[rowind].Cells[1].Text
+            };
+            string cad = "";
+            objBAct.EliminarLaboratorio(nuevo, ref cad);
+            TextBox2.Text = cad;
+
+            string m = "";
+            Session["Tabla1"] = objBAct.ObtenTodLaboratorio(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox2.Text = m;
+            GridView2.DataBind();
+
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

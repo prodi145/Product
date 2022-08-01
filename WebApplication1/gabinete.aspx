@@ -25,6 +25,12 @@
         #GridView2{
             width:600px;
         }
+        #GridView3{
+            width:600px;
+        }
+        #GridView4{
+            width:600px;
+        }
     </style>
 </head>
 <body>
@@ -219,7 +225,6 @@
 						</a>
 						<ul class="submenu">
                             <li><a href="consultas.aspx">Ver Consultas...</a></li>
-							<li><a href="componentes.aspx">Componentes</a></li>
 							<li><a href="ubicacion.aspx">Ubicacion</a></li>
                             <li><a href="laboratorio.aspx">Laboratorio</a></li>
 							<li><a href="tiporam.aspx">Tipo RAM</a></li>
@@ -260,12 +265,25 @@
             <br />
             <br />
             <asp:Label ID="Label4" runat="server" Text="Selecciona Marca:"></asp:Label>
-&nbsp;&nbsp;
-            <asp:DropDownList ID="DropDownList1" runat="server" Height="23px" Width="212px">
-            </asp:DropDownList>
-            &nbsp;&nbsp;
+                      &nbsp;
             <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Cargar Marcas" />
             <br />
+                     <asp:GridView ID="GridView3" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="133px" Width="598px">
+                         <AlternatingRowStyle BackColor="White" />
+                         <Columns>
+                             <asp:CommandField ButtonType="Button" HeaderText="Selecciona" ShowSelectButton="True" />
+                         </Columns>
+                         <EditRowStyle BackColor="#2461BF" />
+                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                         <RowStyle BackColor="#EFF3FB" />
+                         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                         <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                     </asp:GridView>
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button1" runat="server" Text="Guardar Gabinete" OnClick="Button1_Click" />
@@ -309,10 +327,8 @@
                       <br />
 					  <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Modificar"></asp:Label>
                       (selecciona renglon(registro) que quieres modificar)<br />
-            <asp:Label ID="Label11" runat="server" Text="Id:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox6" runat="server" Width="225px" ReadOnly="true"></asp:TextBox>
-                      <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TextBox6" runat="server" Width="225px" ReadOnly="true" Visible="False"></asp:TextBox>
             <br />
             <asp:Label ID="Label8" runat="server" Text="Modelo:"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -326,22 +342,27 @@
             <br />
             <asp:Label ID="Label10" runat="server" Text="Selecciona Marca:"></asp:Label>
 &nbsp;&nbsp;
-            <asp:DropDownList ID="DropDownList3" runat="server" Height="23px" Width="223px">
-            </asp:DropDownList>
-            &nbsp;&nbsp;
                       <asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="Cargar nueva Marca" Width="151px" />
             <br />
+                      <asp:GridView ID="GridView4" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                         <AlternatingRowStyle BackColor="White" />
+                         <Columns>
+                             <asp:CommandField ButtonType="Button" HeaderText="Selecciona" ShowSelectButton="True" />
+                         </Columns>
+                         <EditRowStyle BackColor="#2461BF" />
+                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                         <RowStyle BackColor="#EFF3FB" />
+                         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                         <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                     </asp:GridView>
                       <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button3" runat="server" Text="Editar" OnClick="Button3_Click" />
-                      <br />
-                      <br />
-            <br />
-            <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar Gabinete"></asp:Label>
-                      (selecciona renglon(registro) que quieres eliminar)<br />
-                      <asp:TextBox ID="TextBox7" runat="server" ReadOnly="true"></asp:TextBox>
-            &nbsp;&nbsp;<asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click" />
-            <br />
                       <br />
 				</div>
 			</div>

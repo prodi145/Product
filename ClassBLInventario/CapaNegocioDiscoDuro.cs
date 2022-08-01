@@ -150,5 +150,18 @@ namespace ClassBLInventario
             }
             return salida;
         }
+
+        public DataTable ObtenTodDiscoDuroMostrar(ref string mensaje)
+        {
+            string consulta = "select id_Disco, TipoDisco, conector from DiscoDuro";
+            DataSet obtener = null;
+            DataTable salida = null;
+            obtener = operacion.ConsultaDataSet(consulta, operacion.AbrirConexion(ref mensaje), ref mensaje);
+            if (obtener != null)
+            {
+                salida = obtener.Tables[0];
+            }
+            return salida;
+        }
     }
 }

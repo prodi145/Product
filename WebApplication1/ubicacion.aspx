@@ -219,7 +219,6 @@
 						</a>
 						<ul class="submenu">
                             <li><a href="consultas.aspx">Ver Consultas...</a></li>
-							<li><a href="componentes.aspx">Componentes</a></li>
 							<li><a href="ubicacion.aspx">Ubicacion</a></li>
                             <li><a href="laboratorio.aspx">Laboratorio</a></li>
 							<li><a href="tiporam.aspx">Tipo RAM</a></li>
@@ -323,19 +322,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <asp:Button ID="Button3" runat="server" Text="Editar" OnClick="Button3_Click" />
                      <br />
-                     <br />
-        <br />
-            <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar Ubicacion"></asp:Label>
-            &nbsp;&nbsp;&nbsp;
-                     (selecciona renglon(registro) que quieres eliminar)<br />
-                     <asp:TextBox ID="TextBox5" runat="server" ReadOnly="true"></asp:TextBox>
-&nbsp;&nbsp;&nbsp; &nbsp;
-           <asp:Button ID="Button4" runat="server" Text="Elimar" OnClick="Button4_Click" />
-           <br />
-           <br />
-           <br />
-           <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            		</div>
 			</div>
 			

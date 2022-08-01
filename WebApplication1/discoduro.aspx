@@ -25,6 +25,15 @@
         #GridView2{
             width:600px;
         }
+        #GridView3{
+            width:600px;
+        }
+        #GridView4{
+            width:600px;
+        }
+        #GridView5{
+            width:600px;
+        }
     </style>
 </head>
 <body>
@@ -219,7 +228,6 @@
 						</a>
 						<ul class="submenu">
                             <li><a href="consultas.aspx">Ver Consultas...</a></li>
-							<li><a href="componentes.aspx">Componentes</a></li>
 							<li><a href="ubicacion.aspx">Ubicacion</a></li>
                             <li><a href="laboratorio.aspx">Laboratorio</a></li>
 							<li><a href="tiporam.aspx">Tipo RAM</a></li>
@@ -264,12 +272,25 @@
             <br />
             <br />
             <asp:Label ID="Label5" runat="server" Text="Seleccionar marca:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Height="23px" Width="237px">
-            </asp:DropDownList>
-            &nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Cargar Marcas" />
             <br />
+                     <asp:GridView ID="GridView5" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                         <AlternatingRowStyle BackColor="White" />
+                         <Columns>
+                             <asp:CommandField ButtonType="Button" HeaderText="Selecciona" ShowSelectButton="True" />
+                         </Columns>
+                         <EditRowStyle BackColor="#2461BF" />
+                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                         <RowStyle BackColor="#EFF3FB" />
+                         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                         <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                     </asp:GridView>
             <br />
             <asp:Label ID="Label6" runat="server" Text="Extra: "></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -283,7 +304,7 @@
             <br />
             <asp:Button ID="Button2" runat="server" Text="Ver Datos" OnClick="Button2_Click" />
             <br />
-                     <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+                     <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Height="164px" Width="600px">
                <AlternatingRowStyle BackColor="White" />
              
                <EditRowStyle BackColor="#2461BF" />
@@ -316,11 +337,9 @@
 				     <br />
 					  <asp:Label ID="Label8" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Modificar"></asp:Label>
                       (selecciona renglon(registro) que quieres modificar)<br />
-            <asp:Label ID="Label11" runat="server" Text="Id:"></asp:Label>
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                      <asp:TextBox ID="TextBox6" runat="server" Width="217px" ReadOnly="true"></asp:TextBox>
+                      <asp:TextBox ID="TextBox6" runat="server" Width="217px" ReadOnly="true" Visible="False"></asp:TextBox>
                       &nbsp;<br />
-            <br />
             <asp:Label ID="Label12" runat="server" Text="Tipo de Disco:"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;<asp:TextBox ID="TextBox7" runat="server" Width="220px"></asp:TextBox>
@@ -337,11 +356,24 @@
             <br />
             <br />
             <asp:Label ID="Label15" runat="server" Text="Seleccionar marca:"></asp:Label>
-&nbsp;&nbsp;<asp:DropDownList ID="DropDownList3" runat="server" Height="21px" Width="215px">
-            </asp:DropDownList>
-            &nbsp;&nbsp;&nbsp;
-                     <asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Cargar Nueva Marca" Width="156px" />
+&nbsp;&nbsp;<asp:Button ID="Button7" runat="server" OnClick="Button7_Click" Text="Cargar Nueva Marca" Width="156px" />
             <br />
+                     <asp:GridView ID="GridView4" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                         <AlternatingRowStyle BackColor="White" />
+                         <Columns>
+                             <asp:CommandField ButtonType="Button" HeaderText="Selecciona" ShowSelectButton="True" />
+                         </Columns>
+                         <EditRowStyle BackColor="#2461BF" />
+                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                         <RowStyle BackColor="#EFF3FB" />
+                         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                         <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                     </asp:GridView>
             <br />
             <asp:Label ID="Label16" runat="server" Text="Extra: "></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
@@ -351,14 +383,6 @@
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button3" runat="server" Text="Editar" OnClick="Button3_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-                     <br />
-            <br />
-            <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar Disco Duro"></asp:Label>
-                     (selecciona renglon(registro) que quieres eliminar)&nbsp;&nbsp;&nbsp;
-            <br />
-                     <asp:TextBox ID="TextBox11" runat="server" ReadOnly="true"></asp:TextBox>
-            <asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click" />
-            <br />
 				</div>
 			</div>
 			

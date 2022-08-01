@@ -219,7 +219,6 @@
 						</a>
 						<ul class="submenu">
                             <li><a href="consultas.aspx">Ver Consultas...</a></li>
-							<li><a href="componentes.aspx">Componentes</a></li>
 							<li><a href="ubicacion.aspx">Ubicacion</a></li>
                             <li><a href="laboratorio.aspx">Laboratorio</a></li>
 							<li><a href="tiporam.aspx">Tipo RAM</a></li>
@@ -307,10 +306,8 @@
             <asp:Label ID="Label10" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Modificar"></asp:Label>
                      (selecciona renglon(registro) que quieres modificar)<br />
 &nbsp;&nbsp;&nbsp;
-                     <asp:Label ID="Label11" runat="server" Text="Id:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:TextBox ID="TextBox7" runat="server" Height="23px" Width="312px" ReadOnly="true"></asp:TextBox>
-                     <br />
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <asp:TextBox ID="TextBox7" runat="server" Height="23px" Width="312px" ReadOnly="true" Visible="False"></asp:TextBox>
                      <br />
 &nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label8" runat="server" Text="Tipo: "></asp:Label>
@@ -326,16 +323,6 @@
                      <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <asp:Button ID="Button3" runat="server" Text="Editar" OnClick="Button3_Click" />
-                     <br />
-                     <br />
-           <br />
-            <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar Tipo de RAM"></asp:Label>
-            &nbsp;(selecciona renglon(registro) que quieres eliminar)&nbsp;&nbsp;
-           <br />
-                     <asp:TextBox ID="TextBox6" runat="server" ReadOnly="true"></asp:TextBox>
-&nbsp;&nbsp;
-           <asp:Button ID="Button4" runat="server" Text="Elimar" OnClick="Button4_Click" />
-            <br />
                      <br />
 				</div>
 			</div>

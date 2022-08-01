@@ -119,6 +119,45 @@ namespace ClassBLInventario
             return salida;
         }
 
+        public DataTable ObtenTodasMarcaconID(ref string mensaje)
+        {
+            string consulta = "select Id_Marca, Marca from marca";
+            DataSet obtener = null;
+            DataTable salida = null;
+            obtener = operacion.ConsultaDataSet(consulta, operacion.AbrirConexion(ref mensaje), ref mensaje);
+            if (obtener != null)
+            {
+                salida = obtener.Tables[0];
+            }
+            return salida;
+        }
+
+        public DataTable ObtenTodasMarcasFiltradasDiscoDuro(ref string mensaje)
+        {
+            string consulta = "select  Id_Marca,Marca from marcom, marca where Idcomponente = 12 and Idmarca = Id_Marca";
+            DataSet obtener = null;
+            DataTable salida = null;
+            obtener = operacion.ConsultaDataSet(consulta, operacion.AbrirConexion(ref mensaje), ref mensaje);
+            if (obtener != null)
+            {
+                salida = obtener.Tables[0];
+            }
+            return salida;
+        }
+
+        public DataTable ObtenTodasMarcasFiltradasGabinete(ref string mensaje)
+        {
+            string consulta = "select  Id_Marca,Marca from marcom, marca where Idcomponente = 13 and Idmarca = Id_Marca";
+            DataSet obtener = null;
+            DataTable salida = null;
+            obtener = operacion.ConsultaDataSet(consulta, operacion.AbrirConexion(ref mensaje), ref mensaje);
+            if (obtener != null)
+            {
+                salida = obtener.Tables[0];
+            }
+            return salida;
+        }
+
         public Boolean EliminarMarca(EntidadMarca nuevo, ref string m)
         {
             string sentencia = "DELETE FROM Marca WHERE Marca = @mar";

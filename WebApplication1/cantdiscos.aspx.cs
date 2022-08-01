@@ -61,18 +61,11 @@ namespace WebApplication1
 
         protected void Button6_Click(object sender, EventArgs e)
         {
-            List<EntidadDiscoDuro> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objDis.DevuelveIdDiscoDuro(ref m);
-            DropDownList2.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList2.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].id_Disco + " "
-                        ));
-            }
+            Session["Tabla2"] = objDis.ObtenTodDiscoDuroMostrar(ref m);
+            GridView3.DataSource = Session["Tabla2"];
             TextBox3.Text = m;
+            GridView3.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -80,7 +73,7 @@ namespace WebApplication1
             EntidadCantDisc nuevo = new EntidadCantDisc()
             {
                 num_inv = Convert.ToString(DropDownList1.SelectedValue),
-                id_Disco = Convert.ToInt16(DropDownList2.SelectedValue),
+                id_Disco = Convert.ToInt16(GridView3.Rows[GridView3.SelectedIndex].Cells[1].Text),
             };
             string cad = "";
             objCant.InsertarCantDisc(nuevo, ref cad);
@@ -119,46 +112,32 @@ namespace WebApplication1
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            EntidadCantDisc nuevo = new EntidadCantDisc()
-            {
-               id_cant  = Convert.ToInt16(TextBox4.Text),
-            };
-            string cad = "";
-            objCant.EliminarCantDisc(nuevo, ref cad);
-            TextBox3.Text = cad;
-            TextBox4.Text = "";
+            
         }
 
         protected void Button8_Click(object sender, EventArgs e)
         {
-            List<EntidadComputadoraFinal> listaAtrapada = null;
-            string m = "";
-            listaAtrapada = objComFin.DevuelveInfoComputadorFinal(ref m);
-            DropDownList4.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList4.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].num_inv + " "
-                        ));
-            }
-            TextBox3.Text = m;
+            //List<EntidadComputadoraFinal> listaAtrapada = null;
+            //string m = "";
+            //listaAtrapada = objComFin.DevuelveInfoComputadorFinal(ref m);
+            //DropDownList4.Items.Clear();
+            //for (int a = 0; a < listaAtrapada.Count; a++)
+            //{
+            //    DropDownList4.Items.Add(
+            //        new ListItem(
+            //            listaAtrapada[a].num_inv + " "
+            //            ));
+            //}
+            //TextBox3.Text = m;
         }
 
         protected void Button9_Click(object sender, EventArgs e)
         {
-            List<EntidadDiscoDuro> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objDis.DevuelveIdDiscoDuro(ref m);
-            DropDownList5.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList5.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].id_Disco + " "
-                        ));
-            }
+            Session["Tabla3"] = objDis.ObtenTodDiscoDuroMostrar(ref m);
+            GridView4.DataSource = Session["Tabla3"];
             TextBox3.Text = m;
+            GridView4.DataBind();
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -166,8 +145,8 @@ namespace WebApplication1
             EntidadCantDisc nuevo = new EntidadCantDisc()
             {
                 id_cant = Convert.ToInt16(TextBox5.Text),
-                num_inv = Convert.ToString(DropDownList4.SelectedValue),
-                id_Disco = Convert.ToInt16(DropDownList5.SelectedValue),
+                num_inv = Convert.ToString(TextBox6.Text),
+                id_Disco = Convert.ToInt16(GridView4.Rows[GridView4.SelectedIndex].Cells[1].Text),
             };
             string cad = "";
             objCant.ModificarCantDisco(nuevo, ref cad);
@@ -184,7 +163,20 @@ namespace WebApplication1
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox4.Text = GridView2.Rows[rowind].Cells[2].Text;
+            EntidadCantDisc nuevo = new EntidadCantDisc()
+            {
+                id_cant = Convert.ToInt16(GridView2.Rows[rowind].Cells[2].Text),
+            };
+            string cad = "";
+            objCant.EliminarCantDisc(nuevo, ref cad);
+            TextBox3.Text = cad;
+
+            string m = "";
+            Session["Tabla1"] = objCant.ObtenTodCantidadDisc(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox3.Text = m;
+            GridView2.DataBind();
+
         }
 
         //metodo para traer datos y poder modificar
@@ -192,6 +184,7 @@ namespace WebApplication1
         {
             int rowind2 = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
             TextBox5.Text = GridView2.Rows[rowind2].Cells[2].Text;
+            TextBox6.Text = GridView2.Rows[rowind2].Cells[3].Text;
         }
     }
 }

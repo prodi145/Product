@@ -219,7 +219,6 @@
 						</a>
 						<ul class="submenu">
                             <li><a href="consultas.aspx">Ver Consultas...</a></li>
-							<li><a href="componentes.aspx">Componentes</a></li>
 							<li><a href="ubicacion.aspx">Ubicacion</a></li>
                             <li><a href="laboratorio.aspx">Laboratorio</a></li>
 							<li><a href="tiporam.aspx">Tipo RAM</a></li>
@@ -261,7 +260,6 @@
            <br />
                 <p>
                     &nbsp;<p>
-                    &nbsp;<p>
            <asp:Button ID="Button2" runat="server" Text="Ver Datos" OnClick="Button2_Click" />
                 <p>
            <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
@@ -286,19 +284,6 @@
                </Columns>
 
            </asp:GridView>
-           		<p>
-                    &nbsp;<p>
-           <br />
-            <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Eliminar Laboratorio"></asp:Label>
-                    (selecciona renglon(registro) que quieres eliminar)&nbsp;&nbsp;&nbsp;
-            <br />
-                    <asp:TextBox ID="TextBox3" runat="server" ReadOnly="true"></asp:TextBox>
-           <asp:Button ID="Button4" runat="server" Text="Elimar" OnClick="Button4_Click" />
-           <br />
-                <p>
-           <br />
-           <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            		</div>
 			</div>
 			

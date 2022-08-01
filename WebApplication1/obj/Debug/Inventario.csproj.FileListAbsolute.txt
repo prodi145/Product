@@ -28,7 +28,6 @@ C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntid
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\bin\roslyn\VBCSCompiler.exe
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\bin\ClassAccesoDatosSQL22.dll
-C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\bin\ClassBLInventario.dll
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\bin\ClassCapaEntidad.dll
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\bin\ClassAccesoDatosSQL22.pdb
@@ -39,4 +38,5 @@ C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntid
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\obj\Debug\Inventario.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\bin\ClassBLInventario.dll
 C:\Users\Lenovo\Desktop\9no cuatri\profe memo\Producto_Inventario\ClassCapaEntidad\WebApplication1\obj\Debug\Inventario.csprojAssemblyReference.cache

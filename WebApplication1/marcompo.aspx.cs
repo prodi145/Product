@@ -46,42 +46,28 @@ namespace WebApplication1
 
         protected void Button6_Click(object sender, EventArgs e)
         {
-            List<EntidadComponentes> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objCompo.DevuelveIdComponentes(ref m);
-            DropDownList1.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList1.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].id_Componente + " "
-                        ));
-            }
+            Session["Tabla2"] = objCompo.ObtenTodComponentes(ref m);
+            GridView3.DataSource = Session["Tabla2"];
             TextBox5.Text = m;
+            GridView3.DataBind();
         }
 
         protected void Button5_Click(object sender, EventArgs e)
         {
-            List<EntidadMarca> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objMarc.DevuelveIDMarca(ref m);
-            DropDownList2.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList2.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].Id_Marca + " "
-                        ));
-            }
+            Session["Tabla3"] = objMarc.ObtenTodasMarcaconID(ref m);
+            GridView4.DataSource = Session["Tabla3"];
             TextBox5.Text = m;
+            GridView4.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             EntidadMarCom nuevo = new EntidadMarCom()
             {
-                Idcomponente = Convert.ToInt16(DropDownList1.SelectedValue),
-                Idmarca = Convert.ToInt16(DropDownList2.SelectedValue)
+                Idcomponente = Convert.ToInt16(GridView3.Rows[GridView3.SelectedIndex].Cells[1].Text),
+                Idmarca = Convert.ToInt16(GridView4.Rows[GridView4.SelectedIndex].Cells[1].Text)
             };
             string cad = "";
             objMarCo.InsertarMarcaComponente(nuevo, ref cad);
@@ -114,17 +100,17 @@ namespace WebApplication1
         //    TextBox5.Text = m;
         //}
 
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            EntidadMarCom nuevo = new EntidadMarCom()
-            {
-                id_marcom = Convert.ToInt16(TextBox6.Text),
-            };
-            string cad = "";
-            objMarCo.EliminarMarcaComponente(nuevo, ref cad);
-            TextBox5.Text = cad;
-            TextBox6.Text = "";
-        }
+        //protected void Button4_Click(object sender, EventArgs e)
+        //{
+        //    EntidadMarCom nuevo = new EntidadMarCom()
+        //    {
+        //        id_marcom = Convert.ToInt16(TextBox6.Text),
+        //    };
+        //    string cad = "";
+        //    objMarCo.EliminarMarcaComponente(nuevo, ref cad);
+        //    TextBox5.Text = cad;
+        //    TextBox6.Text = "";
+        //}
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -142,7 +128,7 @@ namespace WebApplication1
             {
                 id_marcom = Convert.ToInt16(TextBox7.Text),
                 Idcomponente = Convert.ToInt16(TextBox8.Text),
-                Idmarca = Convert.ToInt16(DropDownList5.SelectedValue)
+                Idmarca = Convert.ToInt16(GridView6.Rows[GridView6.SelectedIndex].Cells[1].Text)
             };
             string cad = "";
             objMarCo.ModificarMarcaComponente(nuevo, ref cad);
@@ -169,18 +155,11 @@ namespace WebApplication1
 
         protected void Button13_Click(object sender, EventArgs e)
         {
-            List<EntidadMarca> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objMarc.DevuelveIDMarca(ref m);
-            DropDownList5.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList5.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].Id_Marca + " "
-                        ));
-            }
+            Session["Tabla3"] = objMarc.ObtenTodasMarcaconID(ref m);
+            GridView6.DataSource = Session["Tabla3"];
             TextBox5.Text = m;
+            GridView6.DataBind();
         }
 
         protected void TextBox7_TextChanged(object sender, EventArgs e)
@@ -191,7 +170,19 @@ namespace WebApplication1
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox6.Text = GridView2.Rows[rowind].Cells[2].Text;
+            EntidadMarCom nuevo = new EntidadMarCom()
+            {
+                id_marcom = Convert.ToInt16(GridView2.Rows[rowind].Cells[2].Text),
+            };
+            string cad = "";
+            objMarCo.EliminarMarcaComponente(nuevo, ref cad);
+            TextBox5.Text = cad;
+
+            string m = "";
+            Session["Tabla1"] = objMarCo.ObtenTodasMarcaComponente(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox5.Text = m;
+            GridView2.DataBind();
         }
 
         //metodo para traer datos y poder modificar

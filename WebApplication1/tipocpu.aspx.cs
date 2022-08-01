@@ -39,20 +39,11 @@ namespace WebApplication1
 
         protected void Button5_Click(object sender, EventArgs e)
         {
-            List<EntidadModeloCPU> listaAtrapada = null;
             string m = "";
-            int b = 0;
-            listaAtrapada = objModelCPU.DevuelveIdModeloCPU(ref m);
-            
-            DropDownList1.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList1.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].id_modcpu + " " 
-                        ));
-            }
+            Session["Tabla2"] = objModelCPU.ObtenTodModeloCPUMostrar(ref m);
+            GridView3.DataSource = Session["Tabla2"];
             TextBox3.Text = m;
+            GridView3.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -63,7 +54,7 @@ namespace WebApplication1
                 Familia = TextBox2.Text,
                 Velocidad = TextBox4.Text,
                 Extra = TextBox5.Text,
-                id_modCPU= Convert.ToInt16(DropDownList1.SelectedValue)
+                id_modCPU= Convert.ToInt16(GridView3.Rows[GridView3.SelectedIndex].Cells[1].Text)
             };
             string cad = "";
             objTipCPU.InsertarTipoCPU(nuevo, ref cad);
@@ -104,17 +95,17 @@ namespace WebApplication1
         //    TextBox3.Text = m;
         //}
 
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            EntidadTipoCPU nuevo = new EntidadTipoCPU()
-            {
-                id_Tcup = Convert.ToInt16(TextBox10.Text)
-            };
-            string cad = "";
-            objTipCPU.EliminarTipoCPU(nuevo, ref cad);
-            TextBox3.Text = cad;
-            TextBox10.Text = "";
-        }
+        //protected void Button4_Click(object sender, EventArgs e)
+        //{
+        //    EntidadTipoCPU nuevo = new EntidadTipoCPU()
+        //    {
+        //        id_Tcup = Convert.ToInt16(TextBox10.Text)
+        //    };
+        //    string cad = "";
+        //    objTipCPU.EliminarTipoCPU(nuevo, ref cad);
+        //    TextBox3.Text = cad;
+        //    TextBox10.Text = "";
+        //}
 
         //protected void Button7_Click(object sender, EventArgs e)
         //{
@@ -143,7 +134,7 @@ namespace WebApplication1
                 Familia = TextBox7.Text,
                 Velocidad = TextBox8.Text,
                 Extra = TextBox9.Text,
-                id_modCPU = Convert.ToInt16(DropDownList4.SelectedValue)
+                id_modCPU = Convert.ToInt16(GridView4.Rows[GridView4.SelectedIndex].Cells[1].Text)
             };
             string cad = "";
             objTipCPU.ModificarTipoCPU(nuevo, ref cad);
@@ -157,27 +148,35 @@ namespace WebApplication1
 
         protected void Button8_Click(object sender, EventArgs e)
         {
-            List<EntidadModeloCPU> listaAtrapada = null;
-            string m = "";
-            int b = 0;
-            listaAtrapada = objModelCPU.DevuelveIdModeloCPU(ref m);
 
-            DropDownList4.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList4.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].id_modcpu + " "
-                        ));
-            }
+            string m = "";
+            Session["Tabla3"] = objModelCPU.ObtenTodModeloCPUMostrar(ref m);
+            GridView4.DataSource = Session["Tabla3"];
             TextBox3.Text = m;
+            GridView4.DataBind();
         }
 
         //metodo para traer datos y poder eliminar
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox10.Text = GridView2.Rows[rowind].Cells[2].Text;
+            EntidadTipoCPU nuevo = new EntidadTipoCPU()
+            {
+                id_Tcup = Convert.ToInt16(GridView2.Rows[rowind].Cells[2].Text)
+            };
+            string cad = "";
+            objTipCPU.EliminarTipoCPU(nuevo, ref cad);
+
+            string m = "";
+            Session["Tabla1"] = objTipCPU.ObtenTodoTipoCPU(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox3.Text = m;
+            GridView2.DataBind();
+
+            //TextBox3.Text = cad;
+            //TextBox10.Text = "";
+
+            //TextBox10.Text = GridView2.Rows[rowind].Cells[2].Text;
         }
 
         //metodo para traer datos y poder modificar

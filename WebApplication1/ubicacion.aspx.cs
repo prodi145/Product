@@ -98,14 +98,7 @@ namespace WebApplication1
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            EntidadUbicacion nuevo = new EntidadUbicacion()
-            {
-                num_inv = TextBox5.Text,
-            };
-            string cad = "";
-            objUb.EliminarUbicacion(nuevo, ref cad);
-            TextBox3.Text = cad;
-            TextBox5.Text = "";
+           
         }
 
         //protected void Button7_Click(object sender, EventArgs e)
@@ -175,7 +168,19 @@ namespace WebApplication1
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox5.Text = GridView2.Rows[rowind].Cells[2].Text;
+            EntidadUbicacion nuevo = new EntidadUbicacion()
+            {
+                num_inv = GridView2.Rows[rowind].Cells[2].Text,
+            };
+            string cad = "";
+            objUb.EliminarUbicacion(nuevo, ref cad);
+            TextBox3.Text = cad;
+
+            string m = "";
+            Session["Tabla1"] = objUb.ObtenTodaUbicacion(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox3.Text = m;
+            GridView2.DataBind();
         }
 
         //metodo para traer datos y poder modificar

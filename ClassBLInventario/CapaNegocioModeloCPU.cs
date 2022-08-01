@@ -118,6 +118,20 @@ namespace ClassBLInventario
             return salida;
         }
 
+        
+        public DataTable ObtenTodModeloCPUMostrar(ref string mensaje)
+        {
+            string consulta = "select id_modcpu, ModeloCPU from ModeloCPU";
+            DataSet obtener = null;
+            DataTable salida = null;
+            obtener = operacion.ConsultaDataSet(consulta, operacion.AbrirConexion(ref mensaje), ref mensaje);
+            if (obtener != null)
+            {
+                salida = obtener.Tables[0];
+            }
+            return salida;
+        }
+
         public Boolean EliminarModeloCPU(EntidadModeloCPU nuevo, ref string m)
         {
             string sentencia = "DELETE FROM ModeloCPU WHERE modeloCPU = @mod";

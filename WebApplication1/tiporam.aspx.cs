@@ -74,17 +74,17 @@ namespace WebApplication1
         //    TextBox3.Text = m;
         //}
 
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            EntidadTipoRAM nuevo = new EntidadTipoRAM()
-            {
-                id_tipoRam = Convert.ToInt16(TextBox6.Text)
-            };
-            string cad = "";
-            objTipRAM.EliminarTipoRAM(nuevo, ref cad);
-            TextBox3.Text = cad;
-            TextBox6.Text = "";
-        }
+        //protected void Button4_Click(object sender, EventArgs e)
+        //{
+        //    EntidadTipoRAM nuevo = new EntidadTipoRAM()
+        //    {
+        //        id_tipoRam = Convert.ToInt16(TextBox6.Text)
+        //    };
+        //    string cad = "";
+        //    objTipRAM.EliminarTipoRAM(nuevo, ref cad);
+        //    TextBox3.Text = cad;
+        //    TextBox6.Text = "";
+        //}
 
         protected void Button3_Click(object sender, EventArgs e)
         {
@@ -129,7 +129,18 @@ namespace WebApplication1
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox6.Text = GridView2.Rows[rowind].Cells[2].Text;
+            EntidadTipoRAM nuevo = new EntidadTipoRAM()
+            {
+                id_tipoRam = Convert.ToInt16(GridView2.Rows[rowind].Cells[2].Text)
+            };
+            string cad = "";
+            objTipRAM.EliminarTipoRAM(nuevo, ref cad);
+
+            string m = "";
+            Session["Tabla1"] = objTipRAM.ObtenTodoTipoRAM(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox3.Text = m;
+            GridView2.DataBind();
         }
 
         //metodo para traer datos y poder modificar

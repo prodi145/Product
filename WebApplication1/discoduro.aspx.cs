@@ -43,18 +43,11 @@ namespace WebApplication1
 
         protected void Button5_Click(object sender, EventArgs e)
         {
-            List<EntidadMarca> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objMarc.DevuelveIDMarca(ref m);
-            DropDownList1.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList1.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].Id_Marca + " " 
-                        ));
-            }
+            Session["Tabla2"] = objMarc.ObtenTodasMarcasFiltradasDiscoDuro(ref m);
+            GridView5.DataSource = Session["Tabla2"];
             TextBox5.Text = m;
+            GridView5.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -64,7 +57,7 @@ namespace WebApplication1
                 TipoDisco = TextBox1.Text,
                 conector = TextBox2.Text,
                 Capacidad = TextBox3.Text,
-                F_MarcaDisco = Convert.ToInt16(DropDownList1.SelectedValue),
+                F_MarcaDisco = Convert.ToInt16(GridView5.Rows[GridView5.SelectedIndex].Cells[1].Text),
                 Extra = TextBox4.Text
             };
             string cad = "";
@@ -101,39 +94,44 @@ namespace WebApplication1
         //    TextBox5.Text = m;
         //}
 
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            EntidadDiscoDuro nuevo = new EntidadDiscoDuro()
-            {
-                id_Disco =Convert.ToInt16(TextBox11.Text)
-            };
-            string cad = "";
-            objDiscoD.EliminarDiscoDuro(nuevo, ref cad);
-            TextBox5.Text = cad;
-            TextBox11.Text = "";
-        }
+        //protected void Button4_Click(object sender, EventArgs e)
+        //{
+        //    EntidadDiscoDuro nuevo = new EntidadDiscoDuro()
+        //    {
+        //        id_Disco =Convert.ToInt16(TextBox11.Text)
+        //    };
+        //    string cad = "";
+        //    objDiscoD.EliminarDiscoDuro(nuevo, ref cad);
+        //    TextBox5.Text = cad;
+        //    TextBox11.Text = "";
+        //}
 
         protected void Button7_Click(object sender, EventArgs e)
         {
-            List<EntidadMarca> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objMarc.DevuelveIDMarca(ref m);
-            DropDownList3.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList3.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].Id_Marca + " "
-                        ));
-            }
+            Session["Tabla3"] = objMarc.ObtenTodasMarcasFiltradasDiscoDuro(ref m);
+            GridView4.DataSource = Session["Tabla3"];
             TextBox5.Text = m;
+            GridView4.DataBind();
         }
 
         //metodo para traer datos y poder eliminar
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox11.Text = GridView2.Rows[rowind].Cells[2].Text;
+            EntidadDiscoDuro nuevo = new EntidadDiscoDuro()
+            {
+                id_Disco = Convert.ToInt16(GridView2.Rows[rowind].Cells[2].Text)
+            };
+            string cad = "";
+            objDiscoD.EliminarDiscoDuro(nuevo, ref cad);
+            TextBox5.Text = cad;
+
+            string m = "";
+            Session["Tabla1"] = objDiscoD.ObtenTodDiscoDuro(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox5.Text = m;
+            GridView2.DataBind();
         }
 
         //metodo para traer datos y poder modificar
@@ -155,7 +153,7 @@ namespace WebApplication1
                 TipoDisco = TextBox7.Text,
                 conector = TextBox8.Text,
                 Capacidad = TextBox9.Text,
-                F_MarcaDisco = Convert.ToInt16(DropDownList3.SelectedValue),
+                F_MarcaDisco = Convert.ToInt16(GridView4.Rows[GridView4.SelectedIndex].Cells[1].Text),
                 Extra = TextBox10.Text
             };
             string cad = "";

@@ -46,7 +46,7 @@ namespace WebApplication1
             {
                 Modelo = TextBox1.Text,
                 TipoForma = TextBox2.Text,
-                F_Marca = Convert.ToInt16(DropDownList1.SelectedValue)
+                F_Marca = Convert.ToInt16(GridView3.Rows[GridView3.SelectedIndex].Cells[1].Text)
             };
             string cad = "";
             objGabi.InsertarGabinete(nuevo, ref cad);
@@ -57,18 +57,11 @@ namespace WebApplication1
 
         protected void Button5_Click(object sender, EventArgs e)
         {
-            List<EntidadMarca> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objMarc.DevuelveIDMarca(ref m);
-            DropDownList1.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList1.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].Id_Marca + " "
-                        ));
-            }
+            Session["Tabla2"] = objMarc.ObtenTodasMarcasFiltradasGabinete(ref m);
+            GridView3.DataSource = Session["Tabla2"];
             TextBox3.Text = m;
+            GridView3.DataBind();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -103,30 +96,14 @@ namespace WebApplication1
 
         protected void Button6_Click(object sender, EventArgs e)
         {
-            List<EntidadMarca> listaAtrapada = null;
             string m = "";
-            listaAtrapada = objMarc.DevuelveIDMarca(ref m);
-            DropDownList3.Items.Clear();
-            for (int a = 0; a < listaAtrapada.Count; a++)
-            {
-                DropDownList3.Items.Add(
-                    new ListItem(
-                        listaAtrapada[a].Id_Marca + " "
-                        ));
-            }
+            Session["Tabla3"] = objMarc.ObtenTodasMarcasFiltradasGabinete(ref m);
+            GridView4.DataSource = Session["Tabla3"];
             TextBox3.Text = m;
+            GridView4.DataBind();
         }
 
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            EntidadGabinete nuevo = new EntidadGabinete()
-            {
-                id_Gabinete = Convert.ToInt16(TextBox7.Text)
-            };
-            string cad = "";
-            objGabi.EliminarGabinete(nuevo, ref cad);
-            TextBox3.Text = cad;
-        }
+      
 
         protected void Button3_Click(object sender, EventArgs e)
         {
@@ -135,7 +112,7 @@ namespace WebApplication1
                 id_Gabinete = Convert.ToInt16(TextBox6.Text),
                 Modelo = TextBox4.Text,
                 TipoForma = TextBox5.Text,
-                F_Marca = Convert.ToInt16(DropDownList3.SelectedValue)
+                F_Marca = Convert.ToInt16(GridView4.Rows[GridView4.SelectedIndex].Cells[1].Text)
             };
             string cad = "";
             objGabi.ModificarGabinete(nuevo, ref cad);
@@ -149,7 +126,19 @@ namespace WebApplication1
         protected void chk_CheckedChanged(object sender, EventArgs e)
         {
             int rowind = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-            TextBox7.Text = GridView2.Rows[rowind].Cells[2].Text;
+            EntidadGabinete nuevo = new EntidadGabinete()
+            {
+                id_Gabinete = Convert.ToInt16(GridView2.Rows[rowind].Cells[2].Text)
+            };
+            string cad = "";
+            objGabi.EliminarGabinete(nuevo, ref cad);
+            TextBox3.Text = cad;
+
+            string m = "";
+            Session["Tabla1"] = objGabi.ObtenTodasGabinete(ref m);
+            GridView2.DataSource = Session["Tabla1"];
+            TextBox3.Text = m;
+            GridView2.DataBind();
         }
 
         //metodo para traer datos y poder modificar
